@@ -1,0 +1,8 @@
+{
+  "name": "Tutti Frutti Women - The Evolution",
+  "description": "A vibrant and artistic landing page for the Tutti Frutti Women NFT project, showcasing its transition to the Base network, historical impact on cancer warriors, and community partnerships.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
