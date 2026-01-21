@@ -5,7 +5,7 @@ import HistorySection from './HistorySection';
 import ImpactSection from './ImpactSection';
 import LegacyArchive from './LegacyArchive';
 import BaseLaunch from './BaseLaunch';
-import PartnersAndTestimonials from './PartnersAndTestimonials';
+import { TESTIMONIALS } from './constants';
 import Footer from './Footer';
 
 function App() {
