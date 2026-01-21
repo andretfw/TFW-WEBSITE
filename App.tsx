@@ -5,7 +5,7 @@ import HistorySection from './HistorySection';
 import ImpactSection from './ImpactSection';
 import LegacyArchive from './LegacyArchive';
 import BaseLaunch from './BaseLaunch';
-import { TESTIMONIALS } from './constants';
+import PartnersAndTestimonials from './PartnersAndTestimonials'; // This was missing!
 import Footer from './Footer';
 
 function App() {
