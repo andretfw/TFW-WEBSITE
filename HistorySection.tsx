@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ACHIEVEMENTS } from '../constants';
+import { ACHIEVEMENTS } from './constants';
 
 const HistorySection: React.FC = () => {
   return (
