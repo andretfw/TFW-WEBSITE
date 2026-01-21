@@ -1,26 +1,25 @@
-
-import React from 'react';
-import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import HistorySection from './components/HistorySection';
-import LegacyArchive from './components/LegacyArchive';
-import BaseLaunch from './components/BaseLaunch';
-import ImpactSection from './components/ImpactSection';
-import PartnersAndTestimonials from './components/PartnersAndTestimonials';
-import Footer from './components/Footer';
+import { useState } from 'react';
+import Navigation from './Navigation';
+import Hero from './Hero';
+import HistorySection from './HistorySection';
+import ImpactSection from './ImpactSection';
+import LegacyArchive from './LegacyArchive';
+import BaseLaunch from './BaseLaunch';
+import PartnersAndTestimonials from './PartnersAndTestimonials';
+import Footer from './Footer';
 
 function App() {
+  const [currentAccount, setCurrentAccount] = useState<string | null>(null);
+
   return (
-    <div className="min-h-screen bg-neutral-50">
-      <Navigation />
-      <main>
-        <Hero />
-        <HistorySection />
-        <ImpactSection />
-        <LegacyArchive />
-        <BaseLaunch />
-        <PartnersAndTestimonials />
-      </main>
+    <div className="min-h-screen bg-[#FDF8F7]">
+      <Navigation currentAccount={currentAccount} setCurrentAccount={setCurrentAccount} />
+      <Hero />
+      <HistorySection />
+      <ImpactSection />
+      <LegacyArchive />
+      <BaseLaunch />
+      <PartnersAndTestimonials />
       <Footer />
     </div>
   );
