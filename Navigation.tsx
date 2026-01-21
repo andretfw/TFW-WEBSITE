@@ -95,12 +95,13 @@ const Navigation: React.FC = () => {
           <a href="#archive" className="hover:text-pink-600 transition-colors">Archive</a>
           <a href="#base" className="hover:text-pink-600 transition-colors">Base Launch</a>
           
-          <button 
+         <button 
             onClick={connectWallet}
-            className={`px-6 py-2 rounded-full transition-all font-bold ${
+            // CHANGED: Pink to Base Blue (#0052FF)
+            className={`px-6 py-2.5 rounded-full transition-all font-bold shadow-lg transform hover:-translate-y-0.5 ${
               account 
-                ? 'bg-green-50 text-green-700 border border-green-200' 
-                : 'bg-neutral-900 text-white hover:bg-neutral-800 shadow-lg shadow-neutral-900/10'
+                ? 'bg-green-100 text-green-700 border border-green-200' 
+                : 'bg-[#0052FF] text-white hover:bg-blue-700 shadow-blue-500/30'
             }`}
           >
             {account ? formatAddress(account) : 'Connect Wallet'}
