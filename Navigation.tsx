@@ -84,7 +84,7 @@ const Navigation: React.FC = () => {
             <img 
               src="/tfw logo.png" 
               alt="tfw logo" 
-              className="h-20 w-auto object-contain" 
+              className="h-32 w-auto object-contain" 
             />
         </div>
         
