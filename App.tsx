@@ -12,7 +12,7 @@ function App() {
   const [currentAccount, setCurrentAccount] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen bg-[#FDF8F7]">
+    <div className="min-h-screen bg-white text-slate-900">
       <Navigation currentAccount={currentAccount} setCurrentAccount={setCurrentAccount} />
       <Hero />
       <HistorySection />
