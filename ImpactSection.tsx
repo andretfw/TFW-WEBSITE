@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { WARRIORS, CAUSES } from '../constants';
+import { WARRIORS, CAUSES } from './constants';
 
 const ImpactSection: React.FC = () => {
   return (
