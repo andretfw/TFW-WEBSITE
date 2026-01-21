@@ -82,8 +82,8 @@ const Navigation: React.FC = () => {
         {/* --- LOGO SECTION (Replaces the text) --- */}
         <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
             <img 
-              src="/logo.png" 
-              alt="TFW Logo" 
+              src="/tfw logo.png" 
+              alt="tfw logo" 
               className="h-20 w-auto object-contain" 
             />
         </div>
