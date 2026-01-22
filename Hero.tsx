@@ -1,18 +1,12 @@
 import React from 'react';
 
-const Hero: React.FC = () => {
-  
-  // --- SCROLL LOGIC ---
-  const scrollToBase = () => {
-    // This looks for the section with id="claim" in BaseSection.tsx
-    const element = document.getElementById('claim');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      console.error("Could not find element with id 'claim'");
-    }
-  };
+// Define what props this component accepts
+interface HeroProps {
+  onConnect: (action: 'claim' | 'mint') => void;
+}
 
+const Hero: React.FC<HeroProps> = ({ onConnect }) => {
+  
   const socialLinks = [
     {
       name: 'X (Twitter)',
@@ -61,20 +55,18 @@ const Hero: React.FC = () => {
           Archiving legacy pieces on Ethereum and Shibarium to fund <b>Global Dream Support Grants</b> through a refined collection on Base.
         </p>
 
-        {/* BUTTONS */}
+        {/* BUTTONS: NOW TRIGGERING THE REAL WALLET CONNECT */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
           
-          {/* MINT BUTTON */}
           <button 
-            onClick={scrollToBase}
+            onClick={() => onConnect('mint')}
             className="w-full sm:w-auto px-12 py-6 bg-gradient-to-r from-purple-600 to-pink-500 text-white text-xl font-bold rounded-3xl shadow-2xl shadow-purple-500/30 hover:shadow-pink-500/30 hover:-translate-y-1 transition-all cursor-pointer"
           >
             Mint now
           </button>
           
-          {/* CLAIM BUTTON (Renamed) */}
           <button 
-            onClick={scrollToBase}
+            onClick={() => onConnect('claim')}
             className="w-full sm:w-auto px-12 py-6 bg-white text-slate-900 border border-slate-200 text-xl font-bold rounded-3xl hover:border-[#0052FF] hover:text-[#0052FF] hover:shadow-lg transition-all flex items-center justify-center cursor-pointer"
           >
             Claim
