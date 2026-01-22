@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Define what props this component accepts
+// Define props to receive the "Smart Connect" function from App.tsx
 interface HeroProps {
   onConnect: (action: 'claim' | 'mint') => void;
 }
@@ -55,19 +55,21 @@ const Hero: React.FC<HeroProps> = ({ onConnect }) => {
           Archiving legacy pieces on Ethereum and Shibarium to fund <b>Global Dream Support Grants</b> through a refined collection on Base.
         </p>
 
-        {/* BUTTONS: NOW TRIGGERING THE REAL WALLET CONNECT */}
+        {/* BUTTONS */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
           
+          {/* MINT BUTTON - Now Base Blue */}
           <button 
             onClick={() => onConnect('mint')}
-            className="w-full sm:w-auto px-12 py-6 bg-gradient-to-r from-purple-600 to-pink-500 text-white text-xl font-bold rounded-3xl shadow-2xl shadow-purple-500/30 hover:shadow-pink-500/30 hover:-translate-y-1 transition-all cursor-pointer"
+            className="w-full sm:w-auto px-12 py-6 bg-[#0052FF] text-white text-xl font-bold rounded-3xl shadow-2xl shadow-blue-500/30 hover:bg-blue-600 hover:-translate-y-1 transition-all cursor-pointer"
           >
-            Mint now
+            Mint Now
           </button>
           
+          {/* CLAIM BUTTON - Now TFW Purple Gradient */}
           <button 
             onClick={() => onConnect('claim')}
-            className="w-full sm:w-auto px-12 py-6 bg-white text-slate-900 border border-slate-200 text-xl font-bold rounded-3xl hover:border-[#0052FF] hover:text-[#0052FF] hover:shadow-lg transition-all flex items-center justify-center cursor-pointer"
+            className="w-full sm:w-auto px-12 py-6 bg-gradient-to-r from-purple-600 to-pink-500 text-white text-xl font-bold rounded-3xl shadow-2xl shadow-purple-500/30 hover:shadow-pink-500/30 hover:-translate-y-1 transition-all cursor-pointer"
           >
             Claim
           </button>
