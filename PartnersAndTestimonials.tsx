@@ -1,74 +1,75 @@
-
 import React from 'react';
-import { TESTIMONIALS } from './constants';
+
+// IMPORT YOUR PARTNER LOGOS (Exact Filenames)
+import ethWomenLogo from './Tutti Frutti Women - ETHWOMEN 2024 COMMUNITY PARTNER GRAPHIC.png';
+import futuristLogo from './Tutti Frutti Women- Futurist 2024 COMMUNITY PARTNER GRAPHIC.png';
+import webxLogo from './WEBX TFW.JPG';
+import nftNycLogo from './NFTNYC2024.PNG';
 
 const PartnersAndTestimonials: React.FC = () => {
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="relative">
-            <div className="absolute top-0 -left-20 w-64 h-64 bg-pink-100 rounded-full blur-3xl opacity-50"></div>
-            <div className="absolute bottom-0 -right-20 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50"></div>
+        
+        {/* --- SECTION 1: PROUD PARTNERS (Replaces the fake 15k stat) --- */}
+        <div className="text-center mb-20">
+          <span className="text-purple-600 font-bold tracking-widest uppercase text-xs mb-4 block">
+            Trusted By Global Communities
+          </span>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mb-12">
+            Proud <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Community Partners</span>
+          </h2>
 
-            <div className="text-center mb-16 relative z-10">
-                <h2 className="text-4xl md:text-6xl font-serif font-bold text-neutral-900 italic mb-4 text-center">Community Voices</h2>
-                <p className="text-neutral-500 max-w-2xl mx-auto">Real people, real stories. Hear from the warriors, builders, and collectors who make Tutti Frutti Women what it is today.</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
-                {TESTIMONIALS.map((t, idx) => (
-                    <div 
-                      key={t.id} 
-                      className={`p-10 rounded-[2.5rem] border border-neutral-100 flex flex-col justify-between transition-all hover:scale-[1.02] hover:shadow-xl shadow-sm
-                        ${idx % 3 === 0 ? 'bg-orange-50/30' : idx % 3 === 1 ? 'bg-purple-50/30' : 'bg-blue-50/30'}`}
-                    >
-                        <div>
-                            <div className="flex justify-between items-start mb-6">
-                                <div className="text-neutral-300">
-                                    <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.154c-2.419.91-3.996 3.635-3.996 5.848h3.983v10h-9.983z" />
-                                    </svg>
-                                </div>
-                                <a href={t.xUrl} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-black transition-colors">
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                                    </svg>
-                                </a>
-                            </div>
-                            <p className="text-neutral-700 italic leading-relaxed mb-8 text-lg font-medium tracking-tight">"{t.content}"</p>
-                        </div>
-                        <div className="flex items-center gap-4 pt-6 border-t border-black/5">
-                            <img 
-                              src={t.avatar} 
-                              className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm" 
-                              alt={t.name} 
-                            />
-                            <div>
-                                <h4 className="font-bold text-neutral-900 leading-none mb-1">{t.name}</h4>
-                                <p className="text-[10px] text-neutral-500 font-black uppercase tracking-widest">{t.role}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
+          {/* Logo Grid */}
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-80 hover:opacity-100 transition-opacity">
             
-            <div className="mt-20 text-center">
-                <a 
-                  href="https://tutticancerwarriors.org/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-block group"
-                >
-                    <p className="text-neutral-400 font-bold tracking-widest uppercase text-xs mb-6 italic group-hover:text-pink-600 transition-colors">
-                        Support the warriors at tutti cancer warriors
-                    </p>
-                    <div className="flex justify-center gap-4 group-hover:scale-110 transition-transform">
-                        <img src="https://picsum.photos/seed/ribbon/40/40" className="opacity-40" alt="Awareness" />
-                        <img src="https://picsum.photos/seed/heart/40/40" className="opacity-40" alt="Community" />
-                    </div>
-                </a>
+            {/* Partner 1: ETHWomen */}
+            <div className="w-40 md:w-52 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer">
+              <img src={ethWomenLogo} alt="ETHWomen Partner" className="w-full h-auto object-contain" />
             </div>
+
+            {/* Partner 2: Futurist */}
+            <div className="w-40 md:w-52 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer">
+              <img src={futuristLogo} alt="Futurist Conference" className="w-full h-auto object-contain" />
+            </div>
+
+            {/* Partner 3: WebX */}
+            <div className="w-32 md:w-40 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer">
+              <img src={webxLogo} alt="WebX Asia" className="w-full h-auto object-contain rounded-xl" />
+            </div>
+
+            {/* Partner 4: NFT NYC */}
+            <div className="w-32 md:w-40 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer">
+              <img src={nftNycLogo} alt="NFT NYC" className="w-full h-auto object-contain" />
+            </div>
+
+          </div>
         </div>
+
+        {/* --- SECTION 2: TESTIMONIALS (Real Voices) --- */}
+        <div className="bg-slate-50 rounded-[3rem] p-8 md:p-16 relative">
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <svg className="w-12 h-12 text-purple-300 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21L14.017 18C14.017 16.054 15.398 14.664 17.513 14.664C18.423 14.664 19.333 15.119 20.016 15.847V9.753C20.016 7.425 18.059 5.515 15.656 5.515C13.882 5.515 12.336 6.743 11.699 8.245C10.653 6.699 8.788 5.515 6.604 5.515C4.201 5.515 2.244 7.425 2.244 9.753V15.847C2.927 15.119 3.837 14.664 4.747 14.664C6.862 14.664 8.243 16.054 8.243 18L8.243 21L14.017 21Z" />
+            </svg>
+            
+            <p className="text-2xl md:text-3xl font-serif text-slate-700 leading-relaxed mb-8">
+              "This community isn't just about art; it's about healing. Finding TFW gave me a space to share my story and connect with other survivors in a way I never thought possible."
+            </p>
+            
+            <div className="flex items-center justify-center gap-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                S
+              </div>
+              <div className="text-left">
+                <div className="font-bold text-slate-900">Sarah M.</div>
+                <div className="text-purple-600 text-sm font-bold uppercase tracking-wider">Community Member</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
   );
