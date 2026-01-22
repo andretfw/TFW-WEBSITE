@@ -6,6 +6,8 @@ const HistorySection: React.FC = () => {
     // CHANGED: bg-white -> bg-slate-50 (Slight contrast against the white Hero)
     <section id="about" className="py-24 bg-slate-50 relative">
       <div className="max-w-7xl mx-auto px-6">
+        
+        {/* --- HEADER (Cleaned up, no 15k card) --- */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-xl">
             {/* CHANGED: text-neutral-900 -> text-slate-900 */}
@@ -15,20 +17,12 @@ const HistorySection: React.FC = () => {
               From our first brushstroke on Ethereum to building a multi-chain community, our mission has always been clear: using art to heal and empower.
             </p>
           </div>
-          <div className="hidden md:block">
-            {/* CHANGED: border-neutral-100 -> border-blue-100 */}
-            <div className="bg-white p-6 rounded-3xl border border-blue-100 shadow-sm flex items-center gap-4">
-                <div className="flex -space-x-3">
-                    {[1, 2, 3, 4].map(i => (
-                        <img key={i} src={`https://picsum.photos/seed/${i + 10}/100/100`} className="w-12 h-12 rounded-full border-4 border-white object-cover" alt="community" />
-                    ))}
-                </div>
-                {/* CHANGED: text-neutral-700 -> text-[#0052FF] */}
-                <span className="font-bold text-[#0052FF]">15k+ Community Members</span>
-            </div>
-          </div>
+          
+          {/* The "15k Community Members" card has been removed from here. */}
+        
         </div>
 
+        {/* --- TIMELINE GRID --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {ACHIEVEMENTS.map((item, idx) => (
             // CHANGED: Pink hover effects -> Blue hover effects (#0052FF)
