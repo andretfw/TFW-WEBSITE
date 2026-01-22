@@ -2,9 +2,10 @@ import React from 'react';
 
 // IMPORTING YOUR EXACT FILES (Case Sensitive!)
 import bookImg from './book.png';
-import timesSquareImg from './TIMES SQUARE.JPG'; // Matches your screenshot exactly
-import nftNycImg from './NFT NYC.jpg';           // Matches your screenshot exactly
-import webxImg from './WEBX TFW.JPG';            // Matches your screenshot exactly
+import timesSquareImg from './TIMES SQUARE.JPG'; 
+import nftNycImg from './NFT NYC.jpg';           
+import webxImg from './WEBX TFW.JPG';            
+import nfcLisbonImg from './NFC LISBON.jpeg';    // New addition!
 
 const FeaturedSection: React.FC = () => {
   return (
@@ -62,38 +63,47 @@ const FeaturedSection: React.FC = () => {
         </div>
 
 
-        {/* --- PART 2: GLOBAL EVENTS (3 Columns now) --- */}
+        {/* --- PART 2: GLOBAL EVENTS (4 Columns) --- */}
         <div className="text-center mb-16">
            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Seen Around the World</h2>
-           <p className="text-slate-500">From Times Square to Global Conferences, we take our mission everywhere.</p>
+           <p className="text-slate-500">From Times Square to Lisbon, we take our mission everywhere.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
            
            {/* Event 1: Times Square */}
-           <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all">
+           <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
               <img src={timesSquareImg} alt="Times Square Billboard" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
-                 <p className="text-yellow-300 text-xs font-bold uppercase tracking-widest mb-2">New York</p>
-                 <h3 className="text-white text-2xl font-bold">Times Square</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                 <p className="text-yellow-300 text-xs font-bold uppercase tracking-widest mb-1">New York</p>
+                 <h3 className="text-white text-xl font-bold">Times Square</h3>
               </div>
            </div>
 
            {/* Event 2: NFT NYC */}
-           <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all">
+           <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
               <img src={nftNycImg} alt="NFT NYC Event" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
-                 <p className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-2">Conference</p>
-                 <h3 className="text-white text-2xl font-bold">NFT NYC</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                 <p className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-1">Conference</p>
+                 <h3 className="text-white text-xl font-bold">NFT NYC</h3>
               </div>
            </div>
 
            {/* Event 3: WebX Asia */}
-           <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all">
+           <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
               <img src={webxImg} alt="WebX Conference" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
-                 <p className="text-purple-300 text-xs font-bold uppercase tracking-widest mb-2">Global</p>
-                 <h3 className="text-white text-2xl font-bold">WebX Asia</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                 <p className="text-purple-300 text-xs font-bold uppercase tracking-widest mb-1">Global</p>
+                 <h3 className="text-white text-xl font-bold">WebX Asia</h3>
+              </div>
+           </div>
+
+           {/* Event 4: NFC Lisbon */}
+           <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+              <img src={nfcLisbonImg} alt="NFC Lisbon Event" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                 <p className="text-green-300 text-xs font-bold uppercase tracking-widest mb-1">Portugal</p>
+                 <h3 className="text-white text-xl font-bold">NFC Lisbon</h3>
               </div>
            </div>
 
