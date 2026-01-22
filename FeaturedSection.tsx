@@ -1,12 +1,11 @@
 import React from 'react';
 
-// IMPORT YOUR REAL IMAGES
-// Note: Filenames must match EXACTLY (including spaces and .JPG vs .jpg)
+// IMPORT IMAGES
 import bookImg from './book.png';
-import timesSquareImg from './TIMES SQUARE.JPG';
-import nftNycImg from './NFT NYC.jpg';
-import tokyoImg from './TFW TOKYO.jpg';
-import webxImg from './WEBX TFW.JPG';
+import timesSquareImg from './times.jpg';
+import nftNycImg from './nyc.jpg';
+import tokyoImg from './tokyo.jpg';
+import webxImg from './webx.jpg';
 
 const FeaturedSection: React.FC = () => {
   return (
@@ -24,13 +23,11 @@ const FeaturedSection: React.FC = () => {
             <div className="relative w-64 aspect-[2/3] transform group-hover:-rotate-2 transition-all duration-500 shadow-2xl">
                <img 
                  src={bookImg} 
-                 alt="Tutti Frutti Women Book" 
+                 alt="One Mission: Thrive Book Cover" 
                  className="w-full h-full object-cover rounded-r-2xl rounded-l-md shadow-lg" 
                />
-               {/* Shine effect on spine */}
                <div className="absolute top-0 left-0 w-2 h-full bg-white/20 rounded-l-md"></div>
             </div>
-            {/* Shadow effect under book */}
             <div className="absolute bottom-0 w-60 h-4 bg-black/20 blur-xl rounded-full"></div>
           </div>
 
@@ -39,15 +36,30 @@ const FeaturedSection: React.FC = () => {
              <div className="inline-block px-4 py-2 bg-purple-50 rounded-full text-xs font-bold text-purple-600 uppercase tracking-widest mb-6">
                 Published Author
              </div>
-             <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 mb-6">
-               Tutti Frutti Women: <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-orange-500">The Book</span>
+             
+             <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 mb-6 leading-tight">
+               One Mission: <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Thrive</span>
              </h2>
+             
              <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-xl">
-               A physical testament to our journey. More than just art, this book documents the stories, the survivors, and the resilience of the community we built together.
+               Created with <strong>80+ cancer survivors</strong>, this book is designed to share their empowering messages to the world. It blends their stories of resilience with the beautiful art from our genesis collection.
              </p>
-             <button className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-purple-600 transition-all shadow-lg">
-               Get a Copy
-             </button>
+             
+             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+               {/* UPDATED: Amazon Link Button */}
+               <a 
+                 href="https://www.amazon.com/One-Mission-Tutti-Frutti-Women/dp/B0CFCYW6NH"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-purple-600 transition-all shadow-lg flex items-center justify-center"
+               >
+                 Get a Copy
+               </a>
+               
+               <button className="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-full font-bold hover:border-purple-200 hover:text-purple-600 transition-all">
+                 Read Preview
+               </button>
+             </div>
           </div>
         </div>
 
@@ -60,52 +72,36 @@ const FeaturedSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
            
-           {/* Event 1: Times Square */}
+           {/* Event 1 */}
            <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer">
-              <img 
-                src={timesSquareImg} 
-                alt="Times Square Billboard" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-              />
+              <img src={timesSquareImg} alt="Times Square Billboard" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                  <p className="text-yellow-300 text-xs font-bold uppercase tracking-widest mb-1">New York</p>
                  <h3 className="text-white text-xl font-bold">Times Square</h3>
               </div>
            </div>
 
-           {/* Event 2: NFT NYC */}
+           {/* Event 2 */}
            <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer">
-              <img 
-                src={nftNycImg} 
-                alt="NFT NYC Event" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-              />
+              <img src={nftNycImg} alt="NFT NYC Event" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                  <p className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-1">Conference</p>
                  <h3 className="text-white text-xl font-bold">NFT NYC</h3>
               </div>
            </div>
 
-           {/* Event 3: Tokyo */}
+           {/* Event 3 */}
            <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer">
-              <img 
-                src={tokyoImg} 
-                alt="Tokyo Exhibition" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-              />
+              <img src={tokyoImg} alt="Tokyo Exhibition" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                  <p className="text-red-300 text-xs font-bold uppercase tracking-widest mb-1">Japan</p>
                  <h3 className="text-white text-xl font-bold">TFW Tokyo</h3>
               </div>
            </div>
 
-           {/* Event 4: WebX */}
+           {/* Event 4 */}
            <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer">
-              <img 
-                src={webxImg} 
-                alt="WebX Conference" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-              />
+              <img src={webxImg} alt="WebX Conference" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
                  <p className="text-purple-300 text-xs font-bold uppercase tracking-widest mb-1">Global</p>
                  <h3 className="text-white text-xl font-bold">WebX Asia</h3>
