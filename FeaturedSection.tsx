@@ -1,73 +1,216 @@
 import React from 'react';
 
-// IMPORT YOUR PARTNER LOGOS (Exact Filenames)
-import ethWomenLogo from './Tutti Frutti Women - ETHWOMEN 2024 COMMUNITY PARTNER GRAPHIC.png';
-import futuristLogo from './Tutti Frutti Women- Futurist 2024 COMMUNITY PARTNER GRAPHIC.png';
-import webxLogo from './WEBX TFW.JPG';
-import nftNycLogo from './NFTNYC2024.PNG';
+// ==========================================
+// PART 1: EXISTING FILES (Book & Events)
+// ==========================================
+import bookImg from './book.png';
+import timesSquareImg from './TIMES SQUARE.JPG'; 
+import nftNycImg from './NFT NYC.jpg';           
+import webxImg from './WEBX TFW.JPG';            
+import nfcLisbonImg from './NFC LISBON.jpeg';    
 
-const PartnersAndTestimonials: React.FC = () => {
+// ==========================================
+// PART 2: COMMUNITY FILES (Exact Filenames)
+// ==========================================
+
+// 1. Warrior Monday
+import warriorImg from './warrior monday (5).png';
+
+// 2. Friends
+import friendsImg from './tutti frutti women and friends.png';
+
+// 3. Friends (Square/Social)
+import friendsSquareImg from './tutti frutti women and friends (Twitter Post) (Instagram Post (Square)) (1).png';
+
+// 4. Chocolate
+import chocoImg from './chocolate.jpeg';
+
+// 5. Number Image
+import numberImg from './5975488738391865724.jpg';
+
+// 6. Speaker Panel (NEW ADDITION)
+import panelImg from './G5apoWZXcAAQ1q9.jpeg';
+
+// 7. Screenshots (Community Moments)
+import screen1 from './Screenshot 2026-01-22 at 12.52.16.png';
+import screen2 from './Screenshot 2026-01-22 at 12.58.55.png';
+import screen3 from './Screenshot 2026-01-22 at 12.59.42.png';
+import screen4 from './Screenshot 2026-01-22 at 13.05.23.png';
+import screen5 from './Screenshot 2026-01-22 at 13.06.54.png';
+import screen6 from './Screenshot 2026-01-22 at 13.13.29.png';
+
+
+const FeaturedSection: React.FC = () => {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-24 bg-slate-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* --- SECTION 1: PROUD PARTNERS (Replaces the fake 15k stat) --- */}
-        <div className="text-center mb-20">
-          <span className="text-purple-600 font-bold tracking-widest uppercase text-xs mb-4 block">
-            Trusted By Global Communities
-          </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mb-12">
-            Proud <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Community Partners</span>
-          </h2>
+        {/* ==============================================
+            SECTION 1: THE BOOK (Unchanged)
+           ============================================== */}
+        <div className="bg-white rounded-[3rem] p-8 md:p-16 shadow-2xl shadow-purple-900/5 border border-purple-100 mb-24 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-purple-100 rounded-full blur-3xl -z-10 opacity-50 translate-x-1/3 -translate-y-1/3"></div>
 
-          {/* Logo Grid */}
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-80 hover:opacity-100 transition-opacity">
-            
-            {/* Partner 1: ETHWomen */}
-            <div className="w-40 md:w-52 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer">
-              <img src={ethWomenLogo} alt="ETHWomen Partner" className="w-full h-auto object-contain" />
+          <div className="relative group w-full md:w-1/3 flex justify-center">
+            <div className="relative w-64 aspect-[2/3] transform group-hover:-rotate-2 transition-all duration-500 shadow-2xl">
+               <img 
+                 src={bookImg} 
+                 alt="One Mission: Thrive Book Cover" 
+                 className="w-full h-full object-cover rounded-r-2xl rounded-l-md shadow-lg" 
+               />
+               <div className="absolute top-0 left-0 w-2 h-full bg-white/20 rounded-l-md"></div>
             </div>
+            <div className="absolute bottom-0 w-60 h-4 bg-black/20 blur-xl rounded-full"></div>
+          </div>
 
-            {/* Partner 2: Futurist */}
-            <div className="w-40 md:w-52 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer">
-              <img src={futuristLogo} alt="Futurist Conference" className="w-full h-auto object-contain" />
-            </div>
-
-            {/* Partner 3: WebX */}
-            <div className="w-32 md:w-40 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer">
-              <img src={webxLogo} alt="WebX Asia" className="w-full h-auto object-contain rounded-xl" />
-            </div>
-
-            {/* Partner 4: NFT NYC */}
-            <div className="w-32 md:w-40 grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer">
-              <img src={nftNycLogo} alt="NFT NYC" className="w-full h-auto object-contain" />
-            </div>
-
+          <div className="w-full md:w-2/3 text-center md:text-left">
+             <div className="inline-block px-4 py-2 bg-purple-50 rounded-full text-xs font-bold text-purple-600 uppercase tracking-widest mb-6">
+                Published Author
+             </div>
+             <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 mb-6 leading-tight">
+               One Mission: <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Thrive</span>
+             </h2>
+             <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-xl">
+               Created with <strong>80+ cancer survivors</strong>, this book is designed to share their empowering messages to the world. It blends their stories of resilience with the beautiful art from our genesis collection.
+             </p>
+             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+               <a 
+                 href="https://www.amazon.com/One-Mission-Tutti-Frutti-Women/dp/B0CFCYW6NH"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="px-10 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-purple-600 transition-all shadow-lg flex items-center justify-center transform hover:-translate-y-1"
+               >
+                 Get a Copy
+               </a>
+             </div>
           </div>
         </div>
 
-        {/* --- SECTION 2: TESTIMONIALS (Real Voices) --- */}
-        <div className="bg-slate-50 rounded-[3rem] p-8 md:p-16 relative">
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <svg className="w-12 h-12 text-purple-300 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21L14.017 18C14.017 16.054 15.398 14.664 17.513 14.664C18.423 14.664 19.333 15.119 20.016 15.847V9.753C20.016 7.425 18.059 5.515 15.656 5.515C13.882 5.515 12.336 6.743 11.699 8.245C10.653 6.699 8.788 5.515 6.604 5.515C4.201 5.515 2.244 7.425 2.244 9.753V15.847C2.927 15.119 3.837 14.664 4.747 14.664C6.862 14.664 8.243 16.054 8.243 18L8.243 21L14.017 21Z" />
-            </svg>
-            
-            <p className="text-2xl md:text-3xl font-serif text-slate-700 leading-relaxed mb-8">
-              "This community isn't just about art; it's about healing. Finding TFW gave me a space to share my story and connect with other survivors in a way I never thought possible."
-            </p>
-            
-            <div className="flex items-center justify-center gap-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                S
-              </div>
-              <div className="text-left">
-                <div className="font-bold text-slate-900">Sarah M.</div>
-                <div className="text-purple-600 text-sm font-bold uppercase tracking-wider">Community Member</div>
-              </div>
-            </div>
 
-          </div>
+        {/* ==============================================
+            SECTION 2: SEEN AROUND THE WORLD (Unchanged)
+           ============================================== */}
+        <div className="text-center mb-16">
+           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Seen Around the World</h2>
+           <p className="text-slate-500">From Times Square to Lisbon, we take our mission everywhere.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
+           {/* Times Square */}
+           <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+              <img src={timesSquareImg} alt="Times Square Billboard" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                 <p className="text-yellow-300 text-xs font-bold uppercase tracking-widest mb-1">New York</p>
+                 <h3 className="text-white text-xl font-bold">Times Square</h3>
+              </div>
+           </div>
+           {/* NFT NYC */}
+           <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+              <img src={nftNycImg} alt="NFT NYC Event" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                 <p className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-1">Conference</p>
+                 <h3 className="text-white text-xl font-bold">NFT NYC</h3>
+              </div>
+           </div>
+           {/* WebX Asia */}
+           <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+              <img src={webxImg} alt="WebX Conference" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                 <p className="text-purple-300 text-xs font-bold uppercase tracking-widest mb-1">Global</p>
+                 <h3 className="text-white text-xl font-bold">WebX Asia</h3>
+              </div>
+           </div>
+           {/* NFC Lisbon */}
+           <div className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+              <img src={nfcLisbonImg} alt="NFC Lisbon Event" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+                 <p className="text-green-300 text-xs font-bold uppercase tracking-widest mb-1">Portugal</p>
+                 <h3 className="text-white text-xl font-bold">NFC Lisbon</h3>
+              </div>
+           </div>
+        </div>
+
+
+        {/* ==============================================
+            SECTION 3: BEING FRUTTI MEANS BEING AWESOME
+           ============================================== */}
+        <div className="bg-purple-50 rounded-[3rem] p-8 md:p-12 border border-purple-100 relative overflow-hidden">
+           {/* Fun Background Elements */}
+           <div className="absolute -top-10 -left-10 w-40 h-40 bg-pink-200 rounded-full blur-2xl opacity-50"></div>
+           <div className="absolute bottom-0 right-0 w-60 h-60 bg-yellow-200 rounded-full blur-3xl opacity-50"></div>
+
+           <div className="text-center relative z-10 mb-12">
+               <span className="text-xs font-bold text-purple-600 uppercase tracking-widest bg-white px-4 py-2 rounded-full shadow-sm">
+                  Community Vibes
+               </span>
+               <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mt-6 leading-tight">
+                  Being <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Frutti</span> Means Being <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500">Awesome</span>
+               </h2>
+           </div>
+
+           {/* PLAYFUL MASONRY GRID - 4 Columns */}
+           <div className="columns-2 md:columns-4 gap-4 space-y-4 relative z-10">
+              
+              {/* Image 1: Number Image */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-2 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={numberImg} alt="Community" className="w-full h-auto rounded-xl" />
+              </div>
+
+              {/* Image 2: Warrior Monday */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-2 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={warriorImg} alt="Warrior Monday" className="w-full h-auto rounded-xl" />
+              </div>
+
+              {/* Image 3: Friends */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-1 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={friendsImg} alt="TFW Friends" className="w-full h-auto rounded-xl" />
+              </div>
+
+              {/* Image 4: Chocolate */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-3 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={chocoImg} alt="Sweet Collab" className="w-full h-auto rounded-xl" />
+              </div>
+
+              {/* Image 5: Speaker Panel (NEW) */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-3 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={panelImg} alt="Speaker Panel" className="w-full h-auto rounded-xl" />
+              </div>
+
+              {/* Image 6: Social Post */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-2 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={friendsSquareImg} alt="Social Highlight" className="w-full h-auto rounded-xl" />
+              </div>
+
+              {/* Screenshots Mix */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-1 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen1} alt="Community Moment" className="w-full h-auto rounded-xl" />
+              </div>
+
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-1 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen2} alt="Community Moment" className="w-full h-auto rounded-xl" />
+              </div>
+
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-2 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen3} alt="Community Moment" className="w-full h-auto rounded-xl" />
+              </div>
+
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-2 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen4} alt="Community Moment" className="w-full h-auto rounded-xl" />
+              </div>
+
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-1 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen5} alt="Community Moment" className="w-full h-auto rounded-xl" />
+              </div>
+
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-1 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen6} alt="Community Moment" className="w-full h-auto rounded-xl" />
+              </div>
+
+           </div>
+           
+           <div className="mt-12 text-center">
+              <p className="text-slate-500 font-medium">And so much more happening every day...</p>
+           </div>
         </div>
 
       </div>
@@ -75,4 +218,4 @@ const PartnersAndTestimonials: React.FC = () => {
   );
 };
 
-export default PartnersAndTestimonials;
+export default FeaturedSection;
