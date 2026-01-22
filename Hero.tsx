@@ -17,13 +17,13 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-white">
-      {/* Background Blobs */}
-      <div className="absolute top-0 -left-4 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
-      <div className="absolute top-0 -right-4 w-96 h-96 bg-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-      <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+      {/* BACKGROUND BLOBS: Purple (Logo) + Blue (Base) */}
+      <div className="absolute top-0 -left-4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+      <div className="absolute top-0 -right-4 w-96 h-96 bg-[#0052FF] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+      <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-        {/* Badge */}
+        {/* Badge: Kept Blue for the "Base" Context */}
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50/80 backdrop-blur-md border border-blue-100 rounded-full text-[#0052FF] text-[10px] font-black mb-8 shadow-sm tracking-widest uppercase">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -32,22 +32,30 @@ const Hero: React.FC = () => {
           Now Minting 2,000 on Base
         </div>
         
-        {/* Title */}
+        {/* HEADLINE: Matches Logo Colors */}
         <h1 className="text-6xl md:text-9xl font-serif font-bold text-slate-900 leading-tight mb-8">
-          Tutti Frutti <span className="text-[#0052FF] underline decoration-blue-200 decoration-4 underline-offset-8">Women</span>.
+          {/* PURPLE GRADIENT for Brand Name */}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">
+            Tutti Frutti
+          </span>
+          <br />
+          {/* BLUE for Network */}
+          <span className="text-[#0052FF] underline decoration-blue-200 decoration-4 underline-offset-8">
+            Women
+          </span>
+          .
         </h1>
         
         <p className="max-w-4xl mx-auto text-xl md:text-3xl text-slate-600 mb-12 leading-relaxed font-medium">
           Archiving legacy pieces on Ethereum and Shibarium to fund <b>Global Dream Support Grants</b> through a refined collection on Base.
         </p>
 
-        {/* Action Buttons */}
+        {/* BUTTONS: Purple Gradient Button */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
-          <button className="w-full sm:w-auto px-12 py-6 bg-[#0052FF] text-white text-xl font-bold rounded-3xl shadow-2xl shadow-blue-500/20 hover:bg-blue-700 hover:-translate-y-1 transition-all">
+          <button className="w-full sm:w-auto px-12 py-6 bg-gradient-to-r from-purple-600 to-pink-500 text-white text-xl font-bold rounded-3xl shadow-2xl shadow-purple-500/30 hover:shadow-pink-500/30 hover:-translate-y-1 transition-all">
             Mint now
           </button>
           
-          {/* UPDATED: Converted button to Link */}
           <a 
             href="https://x.com/andre_tfw/status/2011839897061986318"
             target="_blank"
