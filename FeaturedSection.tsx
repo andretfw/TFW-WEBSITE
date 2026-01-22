@@ -5,7 +5,7 @@ import bookImg from './book.png';
 import timesSquareImg from './TIMES SQUARE.JPG'; 
 import nftNycImg from './NFT NYC.jpg';           
 import webxImg from './WEBX TFW.JPG';            
-import nfcLisbonImg from './NFC LISBON.jpeg';    // New addition!
+import nfcLisbonImg from './NFC LISBON.jpeg';    
 
 const FeaturedSection: React.FC = () => {
   return (
@@ -46,18 +46,15 @@ const FeaturedSection: React.FC = () => {
              </p>
              
              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+               {/* Amazon Link Button (Read Preview removed) */}
                <a 
                  href="https://www.amazon.com/One-Mission-Tutti-Frutti-Women/dp/B0CFCYW6NH"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-purple-600 transition-all shadow-lg flex items-center justify-center"
+                 className="px-10 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-purple-600 transition-all shadow-lg flex items-center justify-center transform hover:-translate-y-1"
                >
                  Get a Copy
                </a>
-               
-               <button className="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-full font-bold hover:border-purple-200 hover:text-purple-600 transition-all">
-                 Read Preview
-               </button>
              </div>
           </div>
         </div>
