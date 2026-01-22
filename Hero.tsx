@@ -11,13 +11,13 @@ const Hero: React.FC = () => {
         </svg>
       ),
       url: 'https://x.com/tfw_nft',
-      color: 'hover:text-[#0052FF]' // Base Blue hover
+      color: 'hover:text-[#0052FF]'
     }
   ];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-white">
-      {/* Background Blobs (Base Blue/Cyan Theme) */}
+      {/* Background Blobs */}
       <div className="absolute top-0 -left-4 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
       <div className="absolute top-0 -right-4 w-96 h-96 bg-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
       <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
@@ -46,12 +46,19 @@ const Hero: React.FC = () => {
           <button className="w-full sm:w-auto px-12 py-6 bg-[#0052FF] text-white text-xl font-bold rounded-3xl shadow-2xl shadow-blue-500/20 hover:bg-blue-700 hover:-translate-y-1 transition-all">
             Mint now
           </button>
-          <button className="w-full sm:w-auto px-12 py-6 bg-white text-slate-900 border border-slate-200 text-xl font-bold rounded-3xl hover:border-[#0052FF] hover:text-[#0052FF] transition-all">
+          
+          {/* UPDATED: Converted button to Link */}
+          <a 
+            href="https://x.com/andre_tfw/status/2011839897061986318"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-12 py-6 bg-white text-slate-900 border border-slate-200 text-xl font-bold rounded-3xl hover:border-[#0052FF] hover:text-[#0052FF] transition-all flex items-center justify-center"
+          >
             Founder's Article
-          </button>
+          </a>
         </div>
 
-        {/* Social Profiles (Only X) */}
+        {/* Social Profiles */}
         <div className="flex flex-col items-center gap-4 mb-20">
           <span className="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase">Follow our journey</span>
           <div className="flex items-center gap-10">
