@@ -63,8 +63,7 @@ const PartnersAndTestimonials: React.FC = () => {
                         Support the warriors at tutti cancer warriors
                     </p>
                     <div className="flex justify-center gap-4 group-hover:scale-110 transition-transform">
-                        <img src="https://picsum.photos/seed/ribbon/40/40" className="opacity-40" alt="Awareness" />
-                        <img src="https://picsum.photos/seed/heart/40/40" className="opacity-40" alt="Community" />
+                        
                     </div>
                 </a>
             </div>
