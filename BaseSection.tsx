@@ -27,6 +27,7 @@ const BaseSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [totalClaimable, setTotalClaimable] = useState<number>(0);
 
+  // --- WALLET LOGIC ---
   const connectWallet = async (action: 'claim' | 'mint') => {
     if (typeof window.ethereum !== 'undefined') {
       try {
@@ -97,7 +98,7 @@ const BaseSection: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
             
-            {/* --- LEFT SIDE: TEXT & BUTTONS --- */}
+            {/* --- LEFT SIDE: TEXT & BUTTONS (With Logic) --- */}
             <div>
                 <div className="inline-flex items-center gap-2 bg-blue-900/30 border border-blue-500/30 rounded-lg px-3 py-1 mb-8 backdrop-blur-sm">
                     <span className="bg-blue-600 text-white text-xs font-bold px-1.5 rounded">B</span>
@@ -115,7 +116,7 @@ const BaseSection: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     
-                    {/* CLAIM CARD */}
+                    {/* CLAIM CARD (Smart) */}
                     <div className="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 p-6 rounded-3xl hover:border-blue-500/50 transition-colors relative">
                         <div className="text-4xl font-bold text-white mb-1">
                             {totalClaimable > 0 ? totalClaimable : '1,387'}
@@ -138,7 +139,7 @@ const BaseSection: React.FC = () => {
                         </button>
                     </div>
 
-                    {/* MINT CARD */}
+                    {/* MINT CARD (Smart) */}
                     <div className="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 p-6 rounded-3xl hover:border-blue-500/50 transition-colors">
                         <div className="text-4xl font-bold text-white mb-1">613</div>
                         <div className="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-4">Public Mint</div>
@@ -154,7 +155,7 @@ const BaseSection: React.FC = () => {
                 </div>
             </div>
 
-            {/* --- RIGHT SIDE: ART CARD (YOUR DESIGN) --- */}
+            {/* --- RIGHT SIDE: ART CARD (YOUR EXACT DESIGN) --- */}
             <div className="relative flex justify-center py-12">
                 <div className="relative w-full max-w-sm">
                     {/* Background Card - Staggered rear card */}
@@ -170,10 +171,11 @@ const BaseSection: React.FC = () => {
                     <div className="relative z-10 bg-neutral-900 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.6)] border-4 border-blue-900/40 overflow-hidden transform rotate-2">
                         <div className="aspect-square relative group">
                             <img 
-                              src={baseEvolutionImage} 
-                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                              alt="Tutti Frutti Woman on Base - Art that heals lives" 
+                                src={baseEvolutionImage} 
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                                alt="Tutti Frutti Woman on Base - Art that heals lives" 
                             />
+                            {/* Gradient and Text at BOTTOM */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent flex flex-col justify-end p-8 md:p-12">
                                 <span className="text-blue-400 font-black uppercase tracking-[0.2em] text-[10px] mb-2 drop-shadow-lg">Base Evolution</span>
                                 <h4 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight italic drop-shadow-2xl">
