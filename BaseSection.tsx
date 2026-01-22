@@ -1,91 +1,21 @@
-import React, { useState } from 'react';
-import { ethers } from 'ethers';
+import React from 'react';
+
+// --- PROPS INTERFACE ---
+// This component now receives data from App.tsx instead of managing it itself
+interface BaseSectionProps {
+  walletAddress: string | null;
+  totalClaimable: number;
+  status: string;
+  isLoading: boolean;
+  onConnect: (action: 'claim' | 'mint') => void;
+}
 
 // --- IMAGE LINKS ---
 const baseEvolutionImage = "https://raw.githubusercontent.com/andretfw/TFW-IMAGES/main/14.png"; 
 const backgroundVibeImage = "https://raw.githubusercontent.com/andretfw/TFW-IMAGES/main/16.png";
 
-// --- CONTRACT CONFIGURATION ---
-const CONTRACTS = {
-  ETH: {
-    address: '0x7fB6Bb8e89e2A0C84Ab78Cd103d85ade167f2d52',
-    rpc: 'https://eth.llamarpc.com', 
-  },
-  SHIB: {
-    address: '0xCd0d5af86FCeAe95feedB2e53E6182acbD063c3f',
-    rpc: 'https://www.shibrpc.com', 
-  }
-};
-
-const ERC721_ABI = [
-  "function balanceOf(address owner) view returns (uint256)"
-];
-
-const BaseSection: React.FC = () => {
-  const [walletAddress, setWalletAddress] = useState<string | null>(null);
-  const [status, setStatus] = useState<string>('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [totalClaimable, setTotalClaimable] = useState<number>(0);
-
-  // --- WALLET LOGIC ---
-  const connectWallet = async (action: 'claim' | 'mint') => {
-    if (typeof window.ethereum !== 'undefined') {
-      try {
-        const provider = new ethers.BrowserProvider(window.ethereum);
-        const accounts = await provider.send("eth_requestAccounts", []);
-        const address = accounts[0];
-        setWalletAddress(address);
-        
-        if (action === 'claim') {
-            checkHoldings(address);
-        } else {
-            alert("Ready to mint on Base!");
-        }
-      } catch (error) {
-        console.error(error);
-        setStatus('Connection failed.');
-      }
-    } else {
-      alert('Please install MetaMask!');
-    }
-  };
-
-  const checkHoldings = async (address: string) => {
-    setIsLoading(true);
-    setStatus('Scanning Ethereum and Shibarium...');
-    setTotalClaimable(0);
-
-    try {
-        const ethProvider = new ethers.JsonRpcProvider(CONTRACTS.ETH.rpc);
-        const shibProvider = new ethers.JsonRpcProvider(CONTRACTS.SHIB.rpc);
-
-        const ethContract = new ethers.Contract(CONTRACTS.ETH.address, ERC721_ABI, ethProvider);
-        const shibContract = new ethers.Contract(CONTRACTS.SHIB.address, ERC721_ABI, shibProvider);
-
-        const [ethBalance, shibBalance] = await Promise.all([
-            ethContract.balanceOf(address).catch(() => BigInt(0)),
-            shibContract.balanceOf(address).catch(() => BigInt(0))
-        ]);
-
-        const total = Number(ethBalance) + Number(shibBalance);
-        setTotalClaimable(total);
-        setIsLoading(false);
-
-        if (total > 0) {
-            setStatus(`Success! Found ${Number(ethBalance)} on ETH and ${Number(shibBalance)} on Shibarium.`);
-        } else {
-            setStatus(`No TFW NFTs found on this wallet.`);
-        }
-
-    } catch (error) {
-        console.error("Error checking holdings:", error);
-        setStatus('Error reading blockchain. Please try again.');
-        setIsLoading(false);
-    }
-  };
-
+const BaseSection: React.FC<BaseSectionProps> = ({ walletAddress, totalClaimable, status, isLoading, onConnect }) => {
   return (
-    // ✅ THIS ID IS CRITICAL FOR THE BUTTONS TO WORK
     <section id="claim" className="py-24 bg-white flex justify-center px-4 scroll-mt-20">
       <div className="max-w-7xl w-full bg-slate-950 rounded-[3rem] p-8 md:p-20 relative overflow-hidden text-white shadow-2xl">
         
@@ -130,7 +60,7 @@ const BaseSection: React.FC = () => {
                         </p>
                         
                         <button 
-                            onClick={() => connectWallet('claim')}
+                            onClick={() => onConnect('claim')}
                             disabled={isLoading}
                             className={`w-full py-3 text-white rounded-xl font-bold transition-all transform active:scale-95 shadow-lg shadow-blue-900/20
                                 ${isLoading ? 'bg-slate-700 cursor-wait' : 'bg-[#0052FF] hover:bg-blue-600'}
@@ -147,7 +77,7 @@ const BaseSection: React.FC = () => {
                         <p className="text-slate-400 text-xs mb-6 h-10">Open to anyone. Join our mission and fund global grants.</p>
                         
                         <button 
-                            onClick={() => connectWallet('mint')}
+                            onClick={() => onConnect('mint')}
                             className="w-full py-3 bg-transparent border border-[#0052FF] text-[#0052FF] hover:bg-[#0052FF] hover:text-white rounded-xl font-bold transition-all transform active:scale-95"
                         >
                             Mint on Base
