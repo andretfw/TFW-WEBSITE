@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
           Archiving legacy pieces on Ethereum and Shibarium to fund <b>Global Dream Support Grants</b> through a refined collection on Base.
         </p>
 
-        {/* BUTTONS: Updated with Claim Legacy */}
+        {/* BUTTONS: Updated with Claim  */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
           
           {/* Mint Button */}
@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
             onClick={scrollToClaim}
             className="w-full sm:w-auto px-12 py-6 bg-white text-slate-900 border border-slate-200 text-xl font-bold rounded-3xl hover:border-[#0052FF] hover:text-[#0052FF] hover:shadow-lg transition-all flex items-center justify-center cursor-pointer"
           >
-            Claim Legacy
+            Claim 
           </button>
         </div>
 
