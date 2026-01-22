@@ -1,12 +1,14 @@
 import React from 'react';
 import { WARRIORS, CAUSES } from './constants';
-// ✅ Import the new component you created
-import FounderQuote from './FounderQuote';
+// 👇 Importing your photo directly here
+import founderImage from './IMG_7239.jpg'; 
 
 const ImpactSection: React.FC = () => {
   return (
     <>
-      {/* --- PART 1: IMPACT STATS (White Background) --- */}
+      {/* =========================================
+          PART 1: IMPACT STATS (White Background)
+         ========================================= */}
       <section id="impact" className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           
@@ -79,9 +81,46 @@ const ImpactSection: React.FC = () => {
         </div>
       </section>
 
-      {/* --- PART 2: FOUNDER QUOTE (Purple Background) --- */}
-      {/* This automatically places the new section right below the stats */}
-      <FounderQuote />
+      {/* =========================================
+          PART 2: FOUNDER QUOTE (Purple Background)
+         ========================================= */}
+      <section className="relative py-24 px-6 overflow-hidden">
+        {/* Purple Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-950 via-purple-900 to-indigo-900"></div>
+        
+        <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20">
+          
+          {/* --- LEFT SIDE: IMAGE WITH GLOWING FRAME --- */}
+          <div className="shrink-0 relative group">
+              {/* The glowing outer frame effect */}
+              <div className="absolute -inset-2 bg-gradient-to-tr from-purple-600 to-pink-600 rounded-[3rem] blur-2xl opacity-40 group-hover:opacity-60 transition duration-500"></div>
+              
+              {/* The actual image container with border */}
+              <div className="relative rounded-[2.5rem] border-4 border-purple-400/30 p-1 shadow-2xl shadow-purple-900/50 bg-purple-950/50">
+                 <img
+                   src={founderImage}
+                   alt="Andreia - Founder of Tutti Frutti Women"
+                   className="rounded-[2.2rem] w-full max-w-sm md:w-[360px] h-[480px] object-cover"
+                 />
+              </div>
+          </div>
+
+          {/* --- RIGHT SIDE: QUOTE TEXT --- */}
+          <div className="text-center md:text-left">
+            <blockquote className="text-4xl md:text-6xl font-serif font-bold text-white leading-[1.1] mb-10 drop-shadow-lg">
+              “I’d rather fail at something that matters than succeed at something that doesn’t.”
+            </blockquote>
+            
+            <div className="inline-block">
+                <div className="text-xl md:text-2xl text-purple-200 font-medium flex items-center justify-center md:justify-start gap-3">
+                    <span className="h-px w-8 bg-purple-400/50"></span>
+                    <span>Andreia — Founder, Tutti Frutti Women</span>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
     </>
   );
 };
