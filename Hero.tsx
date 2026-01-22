@@ -3,12 +3,13 @@ import React from 'react';
 const Hero: React.FC = () => {
   
   // --- SCROLL LOGIC ---
-  // This function takes the user directly to the "Smart" section (BaseSection)
-  // where the wallet connection and scanning logic lives.
   const scrollToBase = () => {
+    // This looks for the section with id="claim" in BaseSection.tsx
     const element = document.getElementById('claim');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.error("Could not find element with id 'claim'");
     }
   };
 
@@ -60,7 +61,7 @@ const Hero: React.FC = () => {
           Archiving legacy pieces on Ethereum and Shibarium to fund <b>Global Dream Support Grants</b> through a refined collection on Base.
         </p>
 
-        {/* BUTTONS: Both now act as shortcuts to the App Section */}
+        {/* BUTTONS */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
           
           {/* MINT BUTTON */}
@@ -71,12 +72,12 @@ const Hero: React.FC = () => {
             Mint now
           </button>
           
-          {/* CLAIM BUTTON */}
+          {/* CLAIM BUTTON (Renamed) */}
           <button 
             onClick={scrollToBase}
             className="w-full sm:w-auto px-12 py-6 bg-white text-slate-900 border border-slate-200 text-xl font-bold rounded-3xl hover:border-[#0052FF] hover:text-[#0052FF] hover:shadow-lg transition-all flex items-center justify-center cursor-pointer"
           >
-            Claim Legacy
+            Claim
           </button>
         </div>
 
