@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Navigation from './Navigation';
 import Hero from './Hero';
 import HistorySection from './HistorySection';
-import FeaturedSection from './FeaturedSection'; // <--- IMPORT IT HERE
+import FeaturedSection from './FeaturedSection';
 import ImpactSection from './ImpactSection';
 import LegacyArchive from './LegacyArchive';
 import BaseLaunch from './BaseLaunch';
@@ -18,12 +18,16 @@ function App() {
       <Hero />
       <HistorySection />
       
-      {/* <--- DISPLAY IT HERE (Between History and Impact) */}
-      <FeaturedSection />
+      {/* FeaturedSection used to be here - MOVED DOWN */}
       
       <ImpactSection />
       <LegacyArchive />
       <BaseLaunch />
+      
+      {/* --- NEW LOCATION: After Base Launch, Before Community --- */}
+      <FeaturedSection />
+      {/* -------------------------------------------------------- */}
+
       <PartnersAndTestimonials />
       <Footer />
     </div>
