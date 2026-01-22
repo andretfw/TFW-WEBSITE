@@ -82,45 +82,35 @@ const ImpactSection: React.FC = () => {
       </section>
 
       {/* =========================================
-          PART 2: FOUNDER QUOTE (UPDATED)
+          PART 2: FOUNDER QUOTE (Small & Elegant)
          ========================================= */}
-      {/* Added mb-24 for spacing between next section */}
-      <section className="relative py-24 px-6 overflow-hidden mb-24">
-        {/* UPDATED BACKGROUND: Vibrant Purple-to-Pink Gradient matching logo */}
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-500"></div>
+      {/* Reduced vertical padding (py-16) and kept spacing below (mb-24) */}
+      <section className="relative py-16 px-6 overflow-hidden mb-24">
         
-        {/* Added subtle pattern overlay for texture */}
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent mix-blend-overlay pointer-events-none"></div>
+        {/* Subtle Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-500"></div>
 
-        {/* Layout Swapped: Text Left, Image Right on desktop */}
-        <div className="relative z-10 max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16">
+        <div className="relative z-10 max-w-4xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
           
-          {/* --- LEFT SIDE: QUOTE TEXT (Smaller size) --- */}
+          {/* --- LEFT SIDE: QUOTE TEXT (Elegant & Personal) --- */}
           <div className="text-center md:text-left flex-1">
-            <blockquote className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight mb-8 drop-shadow-md">
+            <blockquote className="text-2xl md:text-3xl font-serif italic text-white leading-relaxed mb-4 drop-shadow-md opacity-90">
               “I’d rather fail at something that matters than succeed at something that doesn’t.”
             </blockquote>
             
-            <div className="inline-block">
-                <div className="text-lg md:text-xl text-purple-100 font-medium flex items-center justify-center md:justify-start gap-3">
-                    <span className="h-px w-8 bg-purple-200/50"></span>
-                    <span>Andreia — Founder, Tutti Frutti Women</span>
-                </div>
+            <div className="text-sm md:text-base text-purple-100 font-medium tracking-wide uppercase opacity-80">
+                — Andreia, Founder
             </div>
           </div>
 
-          {/* --- RIGHT SIDE: IMAGE (Smaller size) --- */}
-          <div className="shrink-0 relative group">
-              {/* Glowing outer frame - adjusted colors for new background */}
-              <div className="absolute -inset-2 bg-gradient-to-tr from-white/40 to-pink-300/40 rounded-[3rem] blur-xl opacity-50 group-hover:opacity-70 transition duration-500"></div>
-              
-              {/* Image container - MADE SMALLER (w-[280px] h-[380px]) */}
-              <div className="relative rounded-[2.5rem] border-4 border-white/20 p-1 shadow-xl shadow-purple-900/30 bg-white/10 backdrop-blur-sm">
+          {/* --- RIGHT SIDE: SMALL IMAGE --- */}
+          <div className="shrink-0">
+              <div className="relative rounded-2xl border-2 border-white/30 p-1 shadow-lg shadow-purple-900/20 bg-white/10 backdrop-blur-sm">
                  <img
                    src={founderImage}
-                   alt="Andreia - Founder of Tutti Frutti Women"
-                   // UPDATED SIZES HERE:
-                   className="rounded-[2.2rem] w-64 h-80 md:w-[280px] md:h-[380px] object-cover"
+                   alt="Andreia"
+                   // SMALLER SIZE: w-40 (160px)
+                   className="rounded-xl w-32 h-32 md:w-40 md:h-40 object-cover grayscale-[20%] hover:grayscale-0 transition duration-500"
                  />
               </div>
           </div>
