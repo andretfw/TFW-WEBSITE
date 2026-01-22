@@ -1,93 +1,108 @@
 import React from 'react';
 
+// 👇 LOCAL IMAGES
+import img1034 from './1034.png';
+import img1056 from './1056.png';
+import img1078 from './1078.png';
+
 const LegacyArchive: React.FC = () => {
   return (
-    // Deep Navy Background
-    <section id="archive" className="py-32 bg-[#020B1C] text-white overflow-hidden relative">
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/20 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-cyan-900/20 to-transparent"></div>
+    // CHANGED: bg-white for the clean book style
+    <section id="archive" className="py-32 bg-white overflow-hidden relative">
+      
+      {/* Light Background Gradients (Subtle) */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-50 to-transparent opacity-60 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-purple-50 to-transparent opacity-60 pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          
+          {/* --- LEFT SIDE: TEXT (Dark Colors now) --- */}
           <div>
-            <div className="inline-block px-4 py-2 bg-white/10 rounded-full text-xs font-bold tracking-widest text-blue-300 mb-6 uppercase">
+            <div className="inline-block px-4 py-2 bg-blue-50 rounded-full text-xs font-bold tracking-widest text-[#0052FF] mb-6 uppercase">
               The Genesis Collection
             </div>
             
-            <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">
-              Tutti Frutti Women: <span className="text-blue-200 italic">The Archive</span>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight text-slate-900">
+              Tutti Frutti Women: <span className="text-[#0052FF] italic">The Archive</span>
             </h2>
             
-            <p className="text-xl text-blue-100/80 leading-relaxed mb-8">
+            <p className="text-xl text-slate-600 leading-relaxed mb-8">
               It started with my godmother wearing a turban in the heat. "I'm bald," she said with a laugh. "I have this stupid breast cancer, but I will beat it."
             </p>
             
-            <p className="text-lg text-blue-200/60 leading-relaxed mb-10 font-medium">
+            <p className="text-lg text-slate-500 leading-relaxed mb-10 font-medium">
               We are archiving our legacy pieces from Ethereum and Shibarium to make way for a refined era on Base. These originals remain the foundation of our journey.
             </p>
 
             <div className="space-y-6 mb-12">
                 <div className="flex items-start gap-4">
-                    <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-1">
+                        <div className="w-2 h-2 rounded-full bg-[#0052FF]"></div>
                     </div>
                     <div>
-                        <h4 className="font-bold text-lg text-white">Ethereum Genesis (2023)</h4>
-                        <p className="text-blue-200/50">5,000 original supply, reminding the world of strength and healing.</p>
+                        <h4 className="font-bold text-lg text-slate-900">Ethereum Genesis (2023)</h4>
+                        <p className="text-slate-500">5,000 original supply, reminding the world of strength and healing.</p>
                     </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
-                    <div className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
+                    <div className="w-6 h-6 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0 mt-1">
+                        <div className="w-2 h-2 rounded-full bg-cyan-600"></div>
                     </div>
                     <div>
-                        <h4 className="font-bold text-lg text-white">Shibarium Migration (2024)</h4>
-                        <p className="text-blue-200/50">5,000 pieces bridged to keep the mission alive in new ecosystems.</p>
+                        <h4 className="font-bold text-lg text-slate-900">Shibarium Migration (2024)</h4>
+                        <p className="text-slate-500">5,000 pieces bridged to keep the mission alive in new ecosystems.</p>
                     </div>
                 </div>
             </div>
 
-            {/* UPDATED LINK HERE */}
             <a 
               href="https://x.com/andre_tfw/status/2011839897061986318" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-[#0052FF] font-bold flex items-center gap-2 group text-lg hover:text-white transition-colors"
+              className="text-[#0052FF] font-bold flex items-center gap-2 group text-lg hover:text-blue-700 transition-colors"
             >
               Read the Full Founder's Journey on X
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
           </div>
 
+          {/* --- RIGHT SIDE: IMAGES (Clean Borders) --- */}
           <div className="relative">
              <div className="grid grid-cols-2 gap-4 relative z-10">
                 <div className="space-y-4 pt-12">
+                    {/* 1. Original (Hosted) */}
                     <img 
                       src="https://raw.githubusercontent.com/andretfw/TFW-IMAGES/main/35.png" 
-                      className="rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500 border border-white/10 aspect-square object-cover shadow-blue-900/20" 
+                      className="rounded-3xl shadow-xl shadow-blue-900/5 hover:scale-105 transition-transform duration-500 border border-slate-100 aspect-square object-cover" 
                       alt="Tutti Frutti Woman Legacy NFT 35" 
                     />
+                    {/* 2. New Local Image */}
                     <img 
-                      src="https://raw.githubusercontent.com/andretfw/TFW-IMAGES/main/54.png" 
-                      className="rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500 border border-white/10 aspect-[3/4] object-cover shadow-blue-900/20" 
-                      alt="Tutti Frutti Woman Legacy NFT 54" 
+                      src={img1034} 
+                      className="rounded-3xl shadow-xl shadow-blue-900/5 hover:scale-105 transition-transform duration-500 border border-slate-100 aspect-[3/4] object-cover" 
+                      alt="Legacy NFT 1034" 
                     />
                 </div>
                 <div className="space-y-4">
+                    {/* 3. New Local Image */}
                     <img 
-                      src="https://raw.githubusercontent.com/andretfw/TFW-IMAGES/main/58.png" 
-                      className="rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500 border border-white/10 aspect-square object-cover shadow-blue-900/20" 
-                      alt="Tutti Frutti Woman Legacy NFT 58" 
+                      src={img1056} 
+                      className="rounded-3xl shadow-xl shadow-blue-900/5 hover:scale-105 transition-transform duration-500 border border-slate-100 aspect-square object-cover" 
+                      alt="Legacy NFT 1056" 
                     />
+                    {/* 4. New Local Image */}
                     <img 
-                      src="https://raw.githubusercontent.com/andretfw/TFW-IMAGES/main/16.png" 
-                      className="rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500 border border-white/10 aspect-[3/4] object-cover shadow-blue-900/20" 
-                      alt="Tutti Frutti Woman Legacy NFT 16" 
+                      src={img1078} 
+                      className="rounded-3xl shadow-xl shadow-blue-900/5 hover:scale-105 transition-transform duration-500 border border-slate-100 aspect-[3/4] object-cover" 
+                      alt="Legacy NFT 1078" 
                     />
                 </div>
              </div>
-             <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600/20 to-transparent blur-3xl -z-10"></div>
+             
+             {/* Subtle Back Glow (Light Blue) */}
+             <div className="absolute -inset-4 bg-gradient-to-tr from-blue-100 to-transparent blur-3xl -z-10"></div>
           </div>
         </div>
       </div>
