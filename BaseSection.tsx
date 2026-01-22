@@ -37,7 +37,11 @@ const BaseSection: React.FC<BaseSectionProps> = ({ walletAddress, totalClaimable
                 </div>
 
                 <h2 className="text-5xl md:text-7xl font-serif font-bold leading-tight mb-6 drop-shadow-lg">
-                    Tutti Frutti <br />
+                    {/* UPDATED: TFW Logo Gradient Color */}
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400">
+                        Tutti Frutti
+                    </span> 
+                    <br />
                     <span className="text-[#0052FF]">Women on Base</span>
                 </h2>
 
