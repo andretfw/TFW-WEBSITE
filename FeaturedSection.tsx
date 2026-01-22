@@ -1,23 +1,38 @@
 import React from 'react';
 
-// --- PART 1 & 2 IMPORTS (Existing Verified Files) ---
+// ==========================================
+// PART 1: EXISTING FILES (From your working code)
+// ==========================================
 import bookImg from './book.png';
 import timesSquareImg from './TIMES SQUARE.JPG'; 
 import nftNycImg from './NFT NYC.jpg';           
 import webxImg from './WEBX TFW.JPG';            
 import nfcLisbonImg from './NFC LISBON.jpeg';    
 
-// --- PART 3: COMMUNITY IMPORTS (Exact Filenames from Screenshots) ---
-import magImg from './tfw magazine.jpeg';
-import chocoImg from './chocolate.jpeg';
+// ==========================================
+// PART 2: NEW COMMUNITY FILES (Exact Copy Paste)
+// ==========================================
+
+// 1. Warrior Monday
+import warriorImg from './warrior monday (5).png';
+
+// 2. Friends
 import friendsImg from './tutti frutti women and friends.png';
 
-// Note: These filenames have specific spaces and punctuation
-import ethWomenImg from './Tutti Frutti Women - ETHWOMEN 2024 COMMUNITY PARTNER GRAPHIC.png';
-import nftNyc25Img from './nftnyc25.jpeg';
-import warriorImg from './warrior monday (5).png';
-import futuristImg from './TFW_2025FuturistCommunityPartnerGraphic_TORONTO (1).png';
-import panelImg from './G5apoWZXcAAQ1q9.jpeg';
+// 3. Friends (Square/Social)
+import friendsSquareImg from './tutti frutti women and friends (Twitter Post) (Instagram Post (Square)) (1).png';
+
+// 4. Chocolate
+import chocoImg from './chocolate.jpeg';
+
+// 5. Screenshots (Community Moments)
+import screen1 from './Screenshot 2026-01-22 at 12.52.16.png';
+import screen2 from './Screenshot 2026-01-22 at 12.58.55.png';
+import screen3 from './Screenshot 2026-01-22 at 12.59.42.png';
+import screen4 from './Screenshot 2026-01-22 at 13.05.23.png';
+import screen5 from './Screenshot 2026-01-22 at 13.06.54.png';
+import screen6 from './Screenshot 2026-01-22 at 13.13.29.png';
+
 
 const FeaturedSection: React.FC = () => {
   return (
@@ -25,7 +40,7 @@ const FeaturedSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* ==============================================
-            PART 1: THE BOOK
+            SECTION 1: THE BOOK (Unchanged)
            ============================================== */}
         <div className="bg-white rounded-[3rem] p-8 md:p-16 shadow-2xl shadow-purple-900/5 border border-purple-100 mb-24 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-purple-100 rounded-full blur-3xl -z-10 opacity-50 translate-x-1/3 -translate-y-1/3"></div>
@@ -67,7 +82,7 @@ const FeaturedSection: React.FC = () => {
 
 
         {/* ==============================================
-            PART 2: SEEN AROUND THE WORLD
+            SECTION 2: SEEN AROUND THE WORLD (Unchanged)
            ============================================== */}
         <div className="text-center mb-16">
            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Seen Around the World</h2>
@@ -111,7 +126,7 @@ const FeaturedSection: React.FC = () => {
 
 
         {/* ==============================================
-            PART 3: BEING FRUTTI MEANS BEING AWESOME
+            SECTION 3: BEING FRUTTI MEANS BEING AWESOME
            ============================================== */}
         <div className="bg-purple-50 rounded-[3rem] p-8 md:p-12 border border-purple-100 relative overflow-hidden">
            {/* Fun Background Elements */}
@@ -127,71 +142,57 @@ const FeaturedSection: React.FC = () => {
                </h2>
            </div>
 
-           {/* The Expanded Fun Grid (8 Items) */}
-           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+           {/* MASONRY GRID FOR VARIOUS IMAGE SIZES */}
+           <div className="columns-1 md:columns-3 gap-6 space-y-6 relative z-10">
               
-              {/* Card 1: The Magazine (Span 2) */}
-              <div className="md:col-span-2 relative h-64 md:h-72 rounded-3xl overflow-hidden group shadow-lg">
-                 <img src={magImg} alt="TFW Magazine" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-slate-900">
-                    📚 Featured in Magazines
-                 </div>
+              {/* 1. Warrior Monday */}
+              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                 <img src={warriorImg} alt="Warrior Monday" className="w-full h-auto" />
               </div>
 
-              {/* Card 2: Friends (Span 2) */}
-              <div className="md:col-span-2 relative h-64 md:h-72 rounded-3xl overflow-hidden group shadow-lg">
-                 <img src={friendsImg} alt="TFW Friends" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-slate-900">
-                    👯‍♀️ Women & Friends
-                 </div>
+              {/* 2. Friends */}
+              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                 <img src={friendsImg} alt="TFW Friends" className="w-full h-auto" />
               </div>
 
-              {/* Card 3: Warrior Monday */}
-              <div className="relative h-64 md:h-72 rounded-3xl overflow-hidden group shadow-lg bg-white">
-                 <img src={warriorImg} alt="Warrior Monday" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                 <div className="absolute bottom-4 left-4 bg-pink-100/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-pink-700">
-                    💪 Warrior Monday
-                 </div>
+              {/* 3. Chocolate */}
+              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                 <img src={chocoImg} alt="Sweet Collab" className="w-full h-auto" />
               </div>
 
-              {/* Card 4: ETHWomen */}
-              <div className="relative h-64 md:h-72 rounded-3xl overflow-hidden group shadow-lg bg-white">
-                 <img src={ethWomenImg} alt="ETHWomen Partner" className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700" />
-                 <div className="absolute bottom-4 left-4 bg-purple-100/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-purple-900">
-                    🤝 Partner
-                 </div>
+              {/* 4. Social Post */}
+              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                 <img src={friendsSquareImg} alt="Social Highlight" className="w-full h-auto" />
               </div>
 
-              {/* Card 5: Futurist Partner */}
-              <div className="relative h-64 md:h-72 rounded-3xl overflow-hidden group shadow-lg bg-white">
-                 <img src={futuristImg} alt="Futurist Partner" className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700" />
-                 <div className="absolute bottom-4 left-4 bg-blue-100/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-blue-900">
-                    🌐 Futurist Toronto
-                 </div>
+              {/* 5. Screenshot 1 */}
+              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                 <img src={screen1} alt="Community Moment" className="w-full h-auto" />
               </div>
 
-              {/* Card 6: Speaker Panel */}
-              <div className="relative h-64 md:h-72 rounded-3xl overflow-hidden group shadow-lg">
-                 <img src={panelImg} alt="Speaker Panel" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                 <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-white">
-                    🎤 Speaking Live
-                 </div>
+              {/* 6. Screenshot 2 */}
+              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                 <img src={screen2} alt="Community Moment" className="w-full h-auto" />
               </div>
 
-              {/* Card 7: Chocolate */}
-              <div className="md:col-span-2 relative h-64 md:h-72 rounded-3xl overflow-hidden group shadow-lg">
-                 <img src={chocoImg} alt="Tutti Frutti Chocolate" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-slate-900">
-                    🍫 Sweet Collabs
-                 </div>
+              {/* 7. Screenshot 3 */}
+              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                 <img src={screen3} alt="Community Moment" className="w-full h-auto" />
               </div>
 
-              {/* Card 8: NFTNYC25 (Span 2) */}
-              <div className="md:col-span-2 relative h-64 md:h-72 rounded-3xl overflow-hidden group shadow-lg">
-                 <img src={nftNyc25Img} alt="NFTNYC 2025" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                 <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-white">
-                    🚀 Next Stop: NFT NYC 2025
-                 </div>
+              {/* 8. Screenshot 4 */}
+              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                 <img src={screen4} alt="Community Moment" className="w-full h-auto" />
+              </div>
+
+              {/* 9. Screenshot 5 */}
+              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                 <img src={screen5} alt="Community Moment" className="w-full h-auto" />
+              </div>
+
+               {/* 10. Screenshot 6 */}
+              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                 <img src={screen6} alt="Community Moment" className="w-full h-auto" />
               </div>
 
            </div>
