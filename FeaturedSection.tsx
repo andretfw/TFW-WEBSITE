@@ -1,7 +1,7 @@
 import React from 'react';
 
 // ==========================================
-// PART 1: EXISTING FILES (From your working code)
+// PART 1: EXISTING FILES (Book & Events)
 // ==========================================
 import bookImg from './book.png';
 import timesSquareImg from './TIMES SQUARE.JPG'; 
@@ -10,7 +10,7 @@ import webxImg from './WEBX TFW.JPG';
 import nfcLisbonImg from './NFC LISBON.jpeg';    
 
 // ==========================================
-// PART 2: NEW COMMUNITY FILES (Exact Copy Paste)
+// PART 2: COMMUNITY FILES (Exact Filenames)
 // ==========================================
 
 // 1. Warrior Monday
@@ -25,7 +25,13 @@ import friendsSquareImg from './tutti frutti women and friends (Twitter Post) (I
 // 4. Chocolate
 import chocoImg from './chocolate.jpeg';
 
-// 5. Screenshots (Community Moments)
+// 5. Number Image
+import numberImg from './5975488738391865724.jpg';
+
+// 6. Speaker Panel (NEW ADDITION)
+import panelImg from './G5apoWZXcAAQ1q9.jpeg';
+
+// 7. Screenshots (Community Moments)
 import screen1 from './Screenshot 2026-01-22 at 12.52.16.png';
 import screen2 from './Screenshot 2026-01-22 at 12.58.55.png';
 import screen3 from './Screenshot 2026-01-22 at 12.59.42.png';
@@ -142,57 +148,62 @@ const FeaturedSection: React.FC = () => {
                </h2>
            </div>
 
-           {/* MASONRY GRID FOR VARIOUS IMAGE SIZES */}
-           <div className="columns-1 md:columns-3 gap-6 space-y-6 relative z-10">
+           {/* PLAYFUL MASONRY GRID - 4 Columns */}
+           <div className="columns-2 md:columns-4 gap-4 space-y-4 relative z-10">
               
-              {/* 1. Warrior Monday */}
-              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                 <img src={warriorImg} alt="Warrior Monday" className="w-full h-auto" />
+              {/* Image 1: Number Image */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-2 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={numberImg} alt="Community" className="w-full h-auto rounded-xl" />
               </div>
 
-              {/* 2. Friends */}
-              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                 <img src={friendsImg} alt="TFW Friends" className="w-full h-auto" />
+              {/* Image 2: Warrior Monday */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-2 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={warriorImg} alt="Warrior Monday" className="w-full h-auto rounded-xl" />
               </div>
 
-              {/* 3. Chocolate */}
-              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                 <img src={chocoImg} alt="Sweet Collab" className="w-full h-auto" />
+              {/* Image 3: Friends */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-1 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={friendsImg} alt="TFW Friends" className="w-full h-auto rounded-xl" />
               </div>
 
-              {/* 4. Social Post */}
-              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                 <img src={friendsSquareImg} alt="Social Highlight" className="w-full h-auto" />
+              {/* Image 4: Chocolate */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-3 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={chocoImg} alt="Sweet Collab" className="w-full h-auto rounded-xl" />
               </div>
 
-              {/* 5. Screenshot 1 */}
-              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                 <img src={screen1} alt="Community Moment" className="w-full h-auto" />
+              {/* Image 5: Speaker Panel (NEW) */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-3 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={panelImg} alt="Speaker Panel" className="w-full h-auto rounded-xl" />
               </div>
 
-              {/* 6. Screenshot 2 */}
-              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                 <img src={screen2} alt="Community Moment" className="w-full h-auto" />
+              {/* Image 6: Social Post */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-2 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={friendsSquareImg} alt="Social Highlight" className="w-full h-auto rounded-xl" />
               </div>
 
-              {/* 7. Screenshot 3 */}
-              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                 <img src={screen3} alt="Community Moment" className="w-full h-auto" />
+              {/* Screenshots Mix */}
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-1 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen1} alt="Community Moment" className="w-full h-auto rounded-xl" />
               </div>
 
-              {/* 8. Screenshot 4 */}
-              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                 <img src={screen4} alt="Community Moment" className="w-full h-auto" />
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-1 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen2} alt="Community Moment" className="w-full h-auto rounded-xl" />
               </div>
 
-              {/* 9. Screenshot 5 */}
-              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                 <img src={screen5} alt="Community Moment" className="w-full h-auto" />
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-2 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen3} alt="Community Moment" className="w-full h-auto rounded-xl" />
               </div>
 
-               {/* 10. Screenshot 6 */}
-              <div className="break-inside-avoid rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                 <img src={screen6} alt="Community Moment" className="w-full h-auto" />
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-2 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen4} alt="Community Moment" className="w-full h-auto rounded-xl" />
+              </div>
+
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:rotate-1 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen5} alt="Community Moment" className="w-full h-auto rounded-xl" />
+              </div>
+
+              <div className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-rotate-1 hover:scale-105 transition-all duration-300 bg-white p-1">
+                 <img src={screen6} alt="Community Moment" className="w-full h-auto rounded-xl" />
               </div>
 
            </div>
