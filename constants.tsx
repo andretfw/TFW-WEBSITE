@@ -99,7 +99,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     year: "2026",
     title: "Base Regeneration",
     description: "Transitioning to a 2,000 supply collection on Base to fund Global Dream Support Grants.",
-    featuredIn: ["Base Showcase", "NGO TCW Official"]
+    featuredIn: ["NGO TCW Official"]
   }
 ];
 
