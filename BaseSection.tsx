@@ -121,7 +121,7 @@ const BaseSection: React.FC = () => {
                                 ${isLoading ? 'bg-slate-700 cursor-wait' : 'bg-[#0052FF] hover:bg-blue-600'}
                             `}
                         >
-                            {isLoading ? 'Scanning...' : walletAddress ? (totalClaimable > 0 ? 'Claim Now' : 'Check Again') : 'Connect & Check'}
+                            {isLoading ? 'Scanning...' : walletAddress ? (totalClaimable > 0 ? 'Claim Now' : 'Check Again') : 'Claim'}
                         </button>
                     </div>
 
