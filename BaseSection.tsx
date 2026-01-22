@@ -1,7 +1,6 @@
 import React from 'react';
 
 // --- PROPS INTERFACE ---
-// This component now receives data from App.tsx instead of managing it itself
 interface BaseSectionProps {
   walletAddress: string | null;
   totalClaimable: number;
@@ -17,72 +16,77 @@ const backgroundVibeImage = "https://raw.githubusercontent.com/andretfw/TFW-IMAG
 const BaseSection: React.FC<BaseSectionProps> = ({ walletAddress, totalClaimable, status, isLoading, onConnect }) => {
   return (
     <section id="claim" className="py-24 bg-white flex justify-center px-4 scroll-mt-20">
-      <div className="max-w-7xl w-full bg-slate-950 rounded-[3rem] p-8 md:p-20 relative overflow-hidden text-white shadow-2xl">
+      {/* UPDATED: Background is now Base Blue (#0052FF) */}
+      <div className="max-w-7xl w-full bg-[#0052FF] rounded-[3rem] p-8 md:p-20 relative overflow-hidden text-white shadow-2xl shadow-blue-600/40">
         
         {/* --- BACKGROUND TEXTURE --- */}
-        <div className="absolute inset-0 z-0 opacity-40 mix-blend-soft-light pointer-events-none">
-            <img src={backgroundVibeImage} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay pointer-events-none">
+            <img src={backgroundVibeImage} alt="" className="w-full h-full object-cover grayscale" />
         </div>
         
-        {/* Blue Glow Effect */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
+        {/* Decorative Glows */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
             
             {/* --- LEFT SIDE: TEXT & BUTTONS --- */}
             <div>
-                <div className="inline-flex items-center gap-2 bg-blue-900/30 border border-blue-500/30 rounded-lg px-3 py-1 mb-8 backdrop-blur-sm">
-                    <span className="bg-blue-600 text-white text-xs font-bold px-1.5 rounded">B</span>
-                    <span className="text-blue-200 text-xs font-bold tracking-widest uppercase">Regenerated on Base</span>
+                <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 rounded-lg px-3 py-1 mb-8 backdrop-blur-sm">
+                    <span className="bg-white text-[#0052FF] text-xs font-bold px-1.5 rounded">B</span>
+                    <span className="text-white text-xs font-bold tracking-widest uppercase">Regenerated on Base</span>
                 </div>
 
-                <h2 className="text-5xl md:text-7xl font-serif font-bold leading-tight mb-6 drop-shadow-lg">
-                    {/* UPDATED: TFW Logo Gradient Color */}
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400">
-                        Tutti Frutti
+                <h2 className="text-5xl md:text-7xl font-serif font-bold leading-tight mb-6 drop-shadow-md">
+                    {/* UPDATED: "Tutti Frutti Women" gets the TFW Gradient */}
+                    {/* Using a brighter gradient (Pink/Yellow/White) to pop against the Blue background */}
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-purple-300 to-yellow-200">
+                        Tutti Frutti Women
                     </span> 
                     <br />
-                    <span className="text-[#0052FF]">Women on Base</span>
+                    {/* "on Base" is White */}
+                    <span className="text-white">on Base</span>
                 </h2>
 
-                <p className="text-slate-300 text-lg leading-relaxed mb-12 max-w-lg">
+                <p className="text-blue-100 text-lg leading-relaxed mb-12 max-w-lg font-medium">
                     We aren't starting over; we're evolving. 40% of every mint proceeds goes directly into the Dream Fund at Tutti Cancer Warriors NGO.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     
-                    {/* CLAIM CARD */}
-                    <div className="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 p-6 rounded-3xl hover:border-blue-500/50 transition-colors relative">
+                    {/* CLAIM CARD - Darker Blue Glass for Contrast */}
+                    <div className="bg-blue-900/40 backdrop-blur-md border border-white/20 p-6 rounded-3xl hover:bg-blue-900/50 transition-colors relative">
                         <div className="text-4xl font-bold text-white mb-1">
                             {totalClaimable > 0 ? totalClaimable : '1,387'}
                         </div>
-                        <div className="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-4">
+                        <div className="text-blue-200 text-[10px] font-bold uppercase tracking-widest mb-4">
                             {walletAddress ? 'Your Eligible Claims' : 'OG Holders (1:1)'}
                         </div>
-                        <p className="text-slate-400 text-xs mb-6 h-10">
+                        <p className="text-blue-100/70 text-xs mb-6 h-10">
                             {status || "Reserved for our legacy community from ETH & Shibarium."}
                         </p>
                         
+                        {/* UPDATED BUTTON: White Background, Blue Text */}
                         <button 
                             onClick={() => onConnect('claim')}
                             disabled={isLoading}
-                            className={`w-full py-3 text-white rounded-xl font-bold transition-all transform active:scale-95 shadow-lg shadow-blue-900/20
-                                ${isLoading ? 'bg-slate-700 cursor-wait' : 'bg-[#0052FF] hover:bg-blue-600'}
+                            className={`w-full py-3 text-[#0052FF] rounded-xl font-bold transition-all transform active:scale-95 shadow-lg
+                                ${isLoading ? 'bg-slate-200 cursor-wait' : 'bg-white hover:bg-blue-50'}
                             `}
                         >
                             {isLoading ? 'Scanning...' : 'Claim on Base'}
                         </button>
                     </div>
 
-                    {/* MINT CARD */}
-                    <div className="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 p-6 rounded-3xl hover:border-blue-500/50 transition-colors">
+                    {/* MINT CARD - Darker Blue Glass for Contrast */}
+                    <div className="bg-blue-900/40 backdrop-blur-md border border-white/20 p-6 rounded-3xl hover:bg-blue-900/50 transition-colors">
                         <div className="text-4xl font-bold text-white mb-1">613</div>
-                        <div className="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-4">Public Mint</div>
-                        <p className="text-slate-400 text-xs mb-6 h-10">Open to anyone. Join our mission and fund global grants.</p>
+                        <div className="text-blue-200 text-[10px] font-bold uppercase tracking-widest mb-4">Public Mint</div>
+                        <p className="text-blue-100/70 text-xs mb-6 h-10">Open to anyone. Join our mission and fund global grants.</p>
                         
+                        {/* UPDATED BUTTON: White Border, White Text */}
                         <button 
                             onClick={() => onConnect('mint')}
-                            className="w-full py-3 bg-transparent border border-[#0052FF] text-[#0052FF] hover:bg-[#0052FF] hover:text-white rounded-xl font-bold transition-all transform active:scale-95"
+                            className="w-full py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0052FF] rounded-xl font-bold transition-all transform active:scale-95"
                         >
                             Mint on Base
                         </button>
@@ -94,16 +98,16 @@ const BaseSection: React.FC<BaseSectionProps> = ({ walletAddress, totalClaimable
             <div className="relative flex justify-center py-12">
                 <div className="relative w-full max-w-sm">
                     {/* Background Card */}
-                    <div className="absolute inset-0 bg-neutral-800 rounded-[3rem] shadow-2xl border-2 border-white/10 transform -rotate-12 translate-x-[-15%] translate-y-[-5%] overflow-hidden">
+                    <div className="absolute inset-0 bg-blue-800 rounded-[3rem] shadow-2xl border-2 border-white/10 transform -rotate-12 translate-x-[-15%] translate-y-[-5%] overflow-hidden">
                         <img 
                           src={backgroundVibeImage} 
-                          className="w-full h-full object-cover opacity-30 grayscale" 
+                          className="w-full h-full object-cover opacity-50 grayscale mix-blend-multiply" 
                           alt="Background" 
                         />
                     </div>
 
                     {/* Foreground Card */}
-                    <div className="relative z-10 bg-neutral-900 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.6)] border-4 border-blue-900/40 overflow-hidden transform rotate-2">
+                    <div className="relative z-10 bg-slate-950 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.6)] border-4 border-white/20 overflow-hidden transform rotate-2">
                         <div className="aspect-square relative group">
                             <img 
                                 src={baseEvolutionImage} 
@@ -120,7 +124,7 @@ const BaseSection: React.FC<BaseSectionProps> = ({ walletAddress, totalClaimable
                     </div>
 
                     {/* Decorative Glow */}
-                    <div className="absolute -inset-10 bg-blue-500/10 blur-[80px] -z-10 rounded-full animate-pulse"></div>
+                    <div className="absolute -inset-10 bg-white/20 blur-[80px] -z-10 rounded-full animate-pulse"></div>
                 </div>
             </div>
 
