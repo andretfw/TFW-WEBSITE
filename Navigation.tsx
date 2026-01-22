@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// Using your logo file
 import logo from './tfw logo.png'; 
 
 const Navigation: React.FC = () => {
@@ -16,13 +15,48 @@ const Navigation: React.FC = () => {
 
   const connectWallet = async () => {
     const ethereum = (window as any).ethereum;
+
     if (!ethereum) {
       alert('MetaMask is not installed. Please install it to use this feature!');
       return;
     }
+
     try {
       const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-      setAccount(accounts[0]);
+      const userAccount = accounts[0];
+
+      // SHIBARIUM LOGIC
+      const chainId = await ethereum.request({ method: 'eth_chainId' });
+      const targetChainId = '0x6d'; 
+
+      if (chainId !== targetChainId) {
+        try {
+          await ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: targetChainId }],
+          });
+        } catch (switchError: any) {
+          if (switchError.code === 4902) {
+            try {
+              await ethereum.request({
+                method: 'wallet_addEthereumChain',
+                params: [
+                  {
+                    chainId: targetChainId,
+                    chainName: 'Shibarium Mainnet',
+                    rpcUrls: ['https://www.shibrpc.com'],
+                    nativeCurrency: { name: 'BONE', symbol: 'BONE', decimals: 18 },
+                    blockExplorerUrls: ['https://shibariumscan.io'],
+                  },
+                ],
+              });
+            } catch (addError) {
+              console.error('Error adding Shibarium network:', addError);
+            }
+          }
+        }
+      }
+      setAccount(userAccount);
     } catch (error) {
       console.error('Wallet connection failed:', error);
     }
@@ -51,13 +85,13 @@ const Navigation: React.FC = () => {
           <a href="#impact" className="hover:text-[#0052FF] transition-colors">Impact</a>
           <a href="#base" className="hover:text-[#0052FF] transition-colors">Base Launch</a>
           
-          {/* CONNECT BUTTON: Purple Gradient to match Logo */}
+          {/* CONNECT BUTTON: Kept as Base Blue (#0052FF) */}
           <button 
             onClick={connectWallet}
             className={`px-6 py-2.5 rounded-full transition-all font-bold shadow-lg transform hover:-translate-y-0.5 ${
               account 
                 ? 'bg-green-100 text-green-700 border border-green-200' 
-                : 'bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:shadow-purple-500/30'
+                : 'bg-[#0052FF] text-white hover:bg-blue-700 shadow-blue-500/30'
             }`}
           >
             {account ? formatAddress(account) : 'Connect Wallet'}
