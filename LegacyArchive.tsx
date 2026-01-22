@@ -2,16 +2,14 @@ import React from 'react';
 
 const LegacyArchive: React.FC = () => {
   return (
-    // CHANGED: bg-neutral-950 -> bg-[#020B1C] (Deep Navy)
+    // Deep Navy Background
     <section id="archive" className="py-32 bg-[#020B1C] text-white overflow-hidden relative">
-      {/* Blue/Cyan Gradients instead of Pink/Purple */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/20 to-transparent"></div>
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-cyan-900/20 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
-            {/* CHANGED: Badge color */}
             <div className="inline-block px-4 py-2 bg-white/10 rounded-full text-xs font-bold tracking-widest text-blue-300 mb-6 uppercase">
               The Genesis Collection
             </div>
@@ -29,7 +27,6 @@ const LegacyArchive: React.FC = () => {
             </p>
 
             <div className="space-y-6 mb-12">
-                {/* Milestone 1: Ethereum (Blue) */}
                 <div className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 mt-1">
                         <div className="w-2 h-2 rounded-full bg-blue-500"></div>
@@ -40,7 +37,6 @@ const LegacyArchive: React.FC = () => {
                     </div>
                 </div>
                 
-                {/* Milestone 2: Shibarium (Cyan/Orange preserved if preferred, but Blue fits better) */}
                 <div className="flex items-start gap-4">
                     <div className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-1">
                         <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
@@ -52,9 +48,9 @@ const LegacyArchive: React.FC = () => {
                 </div>
             </div>
 
-            {/* Founder Link (Blue) */}
+            {/* UPDATED LINK HERE */}
             <a 
-              href="https://x.com/andre_tfw/status/1897046200257007621" 
+              href="https://x.com/andre_tfw/status/2011839897061986318" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-[#0052FF] font-bold flex items-center gap-2 group text-lg hover:text-white transition-colors"
@@ -64,7 +60,6 @@ const LegacyArchive: React.FC = () => {
             </a>
           </div>
 
-          {/* IMAGE GRID (Kept your exact images!) */}
           <div className="relative">
              <div className="grid grid-cols-2 gap-4 relative z-10">
                 <div className="space-y-4 pt-12">
@@ -92,7 +87,6 @@ const LegacyArchive: React.FC = () => {
                     />
                 </div>
              </div>
-             {/* Blue Glow behind images */}
              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600/20 to-transparent blur-3xl -z-10"></div>
           </div>
         </div>
