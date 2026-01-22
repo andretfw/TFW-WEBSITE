@@ -85,7 +85,8 @@ const BaseSection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-white flex justify-center px-4">
+    // ✅ THIS ID IS CRITICAL FOR THE BUTTONS TO WORK
+    <section id="claim" className="py-24 bg-white flex justify-center px-4 scroll-mt-20">
       <div className="max-w-7xl w-full bg-slate-950 rounded-[3rem] p-8 md:p-20 relative overflow-hidden text-white shadow-2xl">
         
         {/* --- BACKGROUND TEXTURE --- */}
@@ -98,7 +99,7 @@ const BaseSection: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
             
-            {/* --- LEFT SIDE: TEXT & BUTTONS (With Logic) --- */}
+            {/* --- LEFT SIDE: TEXT & BUTTONS --- */}
             <div>
                 <div className="inline-flex items-center gap-2 bg-blue-900/30 border border-blue-500/30 rounded-lg px-3 py-1 mb-8 backdrop-blur-sm">
                     <span className="bg-blue-600 text-white text-xs font-bold px-1.5 rounded">B</span>
@@ -116,7 +117,7 @@ const BaseSection: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     
-                    {/* CLAIM CARD (Smart) */}
+                    {/* CLAIM CARD */}
                     <div className="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 p-6 rounded-3xl hover:border-blue-500/50 transition-colors relative">
                         <div className="text-4xl font-bold text-white mb-1">
                             {totalClaimable > 0 ? totalClaimable : '1,387'}
@@ -139,7 +140,7 @@ const BaseSection: React.FC = () => {
                         </button>
                     </div>
 
-                    {/* MINT CARD (Smart) */}
+                    {/* MINT CARD */}
                     <div className="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 p-6 rounded-3xl hover:border-blue-500/50 transition-colors">
                         <div className="text-4xl font-bold text-white mb-1">613</div>
                         <div className="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-4">Public Mint</div>
@@ -155,27 +156,26 @@ const BaseSection: React.FC = () => {
                 </div>
             </div>
 
-            {/* --- RIGHT SIDE: ART CARD (YOUR EXACT DESIGN) --- */}
+            {/* --- RIGHT SIDE: ART CARD --- */}
             <div className="relative flex justify-center py-12">
                 <div className="relative w-full max-w-sm">
-                    {/* Background Card - Staggered rear card */}
+                    {/* Background Card */}
                     <div className="absolute inset-0 bg-neutral-800 rounded-[3rem] shadow-2xl border-2 border-white/10 transform -rotate-12 translate-x-[-15%] translate-y-[-5%] overflow-hidden">
                         <img 
                           src={backgroundVibeImage} 
                           className="w-full h-full object-cover opacity-30 grayscale" 
-                          alt="Tutti Frutti Woman Evolution Background" 
+                          alt="Background" 
                         />
                     </div>
 
-                    {/* Foreground Card - Using the specific character art provided */}
+                    {/* Foreground Card */}
                     <div className="relative z-10 bg-neutral-900 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.6)] border-4 border-blue-900/40 overflow-hidden transform rotate-2">
                         <div className="aspect-square relative group">
                             <img 
                                 src={baseEvolutionImage} 
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                                alt="Tutti Frutti Woman on Base - Art that heals lives" 
+                                alt="Art" 
                             />
-                            {/* Gradient and Text at BOTTOM */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent flex flex-col justify-end p-8 md:p-12">
                                 <span className="text-blue-400 font-black uppercase tracking-[0.2em] text-[10px] mb-2 drop-shadow-lg">Base Evolution</span>
                                 <h4 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight italic drop-shadow-2xl">
