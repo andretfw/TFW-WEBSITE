@@ -1,21 +1,20 @@
 import React from 'react';
 
-// --- PART 1 & 2 IMPORTS (Existing) ---
+// --- PART 1 & 2 IMPORTS (Existing Verified Files) ---
 import bookImg from './book.png';
 import timesSquareImg from './TIMES SQUARE.JPG'; 
 import nftNycImg from './NFT NYC.jpg';           
 import webxImg from './WEBX TFW.JPG';            
 import nfcLisbonImg from './NFC LISBON.jpeg';    
 
-// --- PART 3: COMMUNITY IMPORTS (ALL FILES) ---
+// --- PART 3: COMMUNITY IMPORTS (Exact Filenames from Screenshots) ---
 import magImg from './tfw magazine.jpeg';
 import chocoImg from './chocolate.jpeg';
 import friendsImg from './tutti frutti women and friends.png';
+
+// Note: These filenames have specific spaces and punctuation
 import ethWomenImg from './Tutti Frutti Women - ETHWOMEN 2024 COMMUNITY PARTNER GRAPHIC.png';
 import nftNyc25Img from './nftnyc25.jpeg';
-
-// --- NEWLY ADDED FILES ---
-// Note: Exact filenames with spaces and parentheses
 import warriorImg from './warrior monday (5).png';
 import futuristImg from './TFW_2025FuturistCommunityPartnerGraphic_TORONTO (1).png';
 import panelImg from './G5apoWZXcAAQ1q9.jpeg';
