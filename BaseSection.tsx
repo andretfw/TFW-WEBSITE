@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
 
-// --- IMAGE CONFIGURATION ---
+// --- IMAGE LINKS ---
 const baseEvolutionImage = "https://raw.githubusercontent.com/andretfw/TFW-IMAGES/main/14.png"; 
 const backgroundVibeImage = "https://raw.githubusercontent.com/andretfw/TFW-IMAGES/main/16.png";
 
@@ -87,16 +87,17 @@ const BaseSection: React.FC = () => {
     <section className="py-24 bg-white flex justify-center px-4">
       <div className="max-w-7xl w-full bg-slate-950 rounded-[3rem] p-8 md:p-20 relative overflow-hidden text-white shadow-2xl">
         
-        {/* --- BACKGROUND VIBE IMAGE --- */}
+        {/* --- BACKGROUND TEXTURE --- */}
         <div className="absolute inset-0 z-0 opacity-40 mix-blend-soft-light pointer-events-none">
             <img src={backgroundVibeImage} alt="" className="w-full h-full object-cover" />
         </div>
         
-        {/* Additional Blue Glow for contrast */}
+        {/* Blue Glow Effect */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-            {/* LEFT SIDE: TEXT & BUTTONS */}
+            
+            {/* --- LEFT SIDE: TEXT & BUTTONS --- */}
             <div>
                 <div className="inline-flex items-center gap-2 bg-blue-900/30 border border-blue-500/30 rounded-lg px-3 py-1 mb-8 backdrop-blur-sm">
                     <span className="bg-blue-600 text-white text-xs font-bold px-1.5 rounded">B</span>
@@ -153,29 +154,40 @@ const BaseSection: React.FC = () => {
                 </div>
             </div>
 
-            {/* RIGHT SIDE: ART CARD */}
-            <div className="relative flex justify-center lg:justify-end">
-                <div className="relative w-80 md:w-96 aspect-square rotate-3 hover:rotate-0 transition-all duration-700">
-                    
-                    {/* IMAGE BASE (Updated to your Link) */}
-                    <img 
-                      src={baseEvolutionImage} 
-                      alt="TFW Base Edition" 
-                      className="rounded-[2.5rem] shadow-2xl border-4 border-slate-800/50 object-cover w-full h-full brightness-50" 
-                    />
-                    
-                    {/* TEXT OVERLAY */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10">
-                        <div className="text-blue-500 font-bold uppercase tracking-widest text-xs mb-2">Base Evolution</div>
-                        <h3 className="font-serif text-5xl md:text-6xl text-white drop-shadow-xl italic leading-tight">
-                            Art that <br/> heals <br/> lives.
-                        </h3>
+            {/* --- RIGHT SIDE: ART CARD (YOUR DESIGN) --- */}
+            <div className="relative flex justify-center py-12">
+                <div className="relative w-full max-w-sm">
+                    {/* Background Card - Staggered rear card */}
+                    <div className="absolute inset-0 bg-neutral-800 rounded-[3rem] shadow-2xl border-2 border-white/10 transform -rotate-12 translate-x-[-15%] translate-y-[-5%] overflow-hidden">
+                        <img 
+                          src={backgroundVibeImage} 
+                          className="w-full h-full object-cover opacity-30 grayscale" 
+                          alt="Tutti Frutti Woman Evolution Background" 
+                        />
                     </div>
+
+                    {/* Foreground Card - Using the specific character art provided */}
+                    <div className="relative z-10 bg-neutral-900 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.6)] border-4 border-blue-900/40 overflow-hidden transform rotate-2">
+                        <div className="aspect-square relative group">
+                            <img 
+                              src={baseEvolutionImage} 
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                              alt="Tutti Frutti Woman on Base - Art that heals lives" 
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent flex flex-col justify-end p-8 md:p-12">
+                                <span className="text-blue-400 font-black uppercase tracking-[0.2em] text-[10px] mb-2 drop-shadow-lg">Base Evolution</span>
+                                <h4 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight italic drop-shadow-2xl">
+                                    Art that heals <br/> lives.
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Decorative Glow */}
+                    <div className="absolute -inset-10 bg-blue-500/10 blur-[80px] -z-10 rounded-full animate-pulse"></div>
                 </div>
-                
-                {/* Decorative Back Card */}
-                <div className="absolute top-4 right-4 w-80 md:w-96 aspect-square bg-slate-800 rounded-[2.5rem] -z-10 -rotate-6 opacity-60"></div>
             </div>
+
         </div>
       </div>
     </section>
