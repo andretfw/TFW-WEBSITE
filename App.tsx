@@ -5,7 +5,8 @@ import HistorySection from './HistorySection';
 import FeaturedSection from './FeaturedSection';
 import ImpactSection from './ImpactSection';
 import LegacyArchive from './LegacyArchive';
-import BaseLaunch from './BaseLaunch';
+// import BaseLaunch from './BaseLaunch'; <--- We replaced this old one
+import BaseSection from './BaseSection'; // <--- NEW IMPORT HERE
 import PartnersAndTestimonials from './PartnersAndTestimonials';
 import Footer from './Footer';
 
@@ -18,15 +19,14 @@ function App() {
       <Hero />
       <HistorySection />
       
-      {/* FeaturedSection used to be here - MOVED DOWN */}
-      
       <ImpactSection />
       <LegacyArchive />
-      <BaseLaunch />
+
+      {/* --- NEW BASE SECTION (Dark UI + Wallet Connect) --- */}
+      <BaseSection />
+      {/* --------------------------------------------------- */}
       
-      {/* --- NEW LOCATION: After Base Launch, Before Community --- */}
       <FeaturedSection />
-      {/* -------------------------------------------------------- */}
 
       <PartnersAndTestimonials />
       <Footer />
