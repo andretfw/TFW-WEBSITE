@@ -13,6 +13,15 @@ const Navigation: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // --- NEW: Scroll Function for Base Launch ---
+  const scrollToBase = (e: React.MouseEvent) => {
+    e.preventDefault(); // Stop default jump
+    const element = document.getElementById('claim'); // Looks for the Base section
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const connectWallet = async () => {
     const ethereum = (window as any).ethereum;
 
@@ -83,9 +92,13 @@ const Navigation: React.FC = () => {
         <div className="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
           <a href="#about" className="hover:text-[#0052FF] transition-colors">Our Story</a>
           <a href="#impact" className="hover:text-[#0052FF] transition-colors">Impact</a>
-          <a href="#base" className="hover:text-[#0052FF] transition-colors">Base Launch</a>
           
-          {/* CONNECT BUTTON: Kept as Base Blue (#0052FF) */}
+          {/* ✅ UPDATED: Added onClick to scroll smoothly */}
+          <a href="#claim" onClick={scrollToBase} className="hover:text-[#0052FF] transition-colors cursor-pointer">
+            Base Launch
+          </a>
+          
+          {/* CONNECT BUTTON */}
           <button 
             onClick={connectWallet}
             className={`px-6 py-2.5 rounded-full transition-all font-bold shadow-lg transform hover:-translate-y-0.5 ${
