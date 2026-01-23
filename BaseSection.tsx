@@ -43,10 +43,10 @@ const BaseSection: React.FC<BaseSectionProps> = ({ walletAddress, totalClaimable
                     </span>
                     <br />
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-purple-300 to-yellow-200">
-                        Women on
+                        Women 
                     </span>
                     <br />
-                    <span className="text-white">Base</span>
+                    <span className="text-white">on Base</span>
                 </h2>
 
                 <p className="text-blue-100 text-lg leading-relaxed mb-12 max-w-lg font-medium">
