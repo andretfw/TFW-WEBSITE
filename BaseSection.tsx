@@ -36,15 +36,17 @@ const BaseSection: React.FC<BaseSectionProps> = ({ walletAddress, totalClaimable
                     <span className="text-white text-xs font-bold tracking-widest uppercase">Regenerated on Base</span>
                 </div>
 
-                <h2 className="text-5xl md:text-7xl font-serif font-bold leading-tight mb-6 drop-shadow-md">
-                    {/* UPDATED: "Tutti Frutti Women" gets the TFW Gradient */}
-                    {/* Using a brighter gradient (Pink/Yellow/White) to pop against the Blue background */}
+                {/* UPDATED: Title Arrangement for 3 lines */}
+                <h2 className="text-5xl md:text-7xl font-serif font-bold leading-[1.1] mb-6 drop-shadow-md">
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-purple-300 to-yellow-200">
-                        Tutti Frutti Women
-                    </span> 
+                        Tutti Frutti
+                    </span>
                     <br />
-                    {/* "on Base" is White */}
-                    <span className="text-white">on Base</span>
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-purple-300 to-yellow-200">
+                        Women on
+                    </span>
+                    <br />
+                    <span className="text-white">Base</span>
                 </h2>
 
                 <p className="text-blue-100 text-lg leading-relaxed mb-12 max-w-lg font-medium">
