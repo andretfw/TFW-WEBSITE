@@ -3,7 +3,7 @@ import React from 'react';
 // 👇 LOCAL IMAGES
 import img1034 from './1034.png';
 import img1056 from './1056.png';
-import img1078 from './1078.png';
+import img1078 from './nft5.png';
 
 const LegacyArchive: React.FC = () => {
   return (
