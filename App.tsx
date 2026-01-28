@@ -1,13 +1,23 @@
 import { useState } from 'react';
 import { ethers } from 'ethers';
-// ... keep your other imports (Navigation, Hero, etc.)
+
+// Import all your design components
+import Navigation from './components/Navigation';
+import Hero from './components/Hero';
+import HistorySection from './components/HistorySection';
+import ImpactSection from './components/ImpactSection';
+import LegacyArchive from './components/LegacyArchive';
+import BaseSection from './components/BaseSection';
+import FeaturedSection from './components/FeaturedSection';
+import PartnersAndTestimonials from './components/PartnersAndTestimonials';
+import Footer from './components/Footer';
 
 const CONTRACTS = {
   ETH: { address: '0x7fB6Bb8e89e2A0C84Ab78Cd103d85ade167f2d52', rpc: 'https://eth.llamarpc.com' },
   SHIB: { address: '0xCd0d5af86FCeAe95feedB2e53E6182acbD063c3f', rpc: 'https://www.shibrpc.com' },
   BASE: { 
-    address: 'YOUR_NEW_BASE_CONTRACT_ADDRESS_HERE', 
-    chainId: '0x2105' // 8453 in Hex
+    address: '0x0000000000000000000000000000000000000000', // Update this once you deploy!
+    chainId: '0x2105' 
   }
 };
 
@@ -23,7 +33,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [totalClaimable, setTotalClaimable] = useState<number>(0);
 
-  // --- 1. THE CHECKER (Reads ETH/SHIB Balances) ---
   const checkHoldings = async (address: string) => {
     try {
       const ethProvider = new ethers.JsonRpcProvider(CONTRACTS.ETH.rpc);
@@ -45,7 +54,6 @@ function App() {
     }
   };
 
-  // --- 2. THE EXECUTOR (The Actual Transaction) ---
   const executeBaseAction = async (action: 'claim' | 'mint', amount: number) => {
     setIsLoading(true);
     try {
@@ -59,7 +67,6 @@ function App() {
         await tx.wait();
       } else {
         setStatus("Minting on Base...");
-        // Set your mint price here (e.g., 0.001 ETH)
         const tx = await contract.mint({ value: ethers.parseEther("0.001") });
         await tx.wait();
       }
@@ -70,9 +77,8 @@ function App() {
     setIsLoading(false);
   };
 
-  // --- 3. THE SMART CONNECT (Combines everything) ---
   const connectWallet = async (action: 'claim' | 'mint') => {
-    if (!window.ethereum) return; // BaseSection handles the mobile redirect
+    if (!window.ethereum) return;
 
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
@@ -80,16 +86,13 @@ function App() {
       const address = accounts[0];
       setWalletAddress(address);
 
-      // A. Check Balances
       const amount = await checkHoldings(address);
 
-      // B. If claiming but no balance, stop.
       if (action === 'claim' && amount === 0) {
         setStatus("No NFTs found to claim.");
         return;
       }
 
-      // C. Trigger the actual Blockchain transaction on Base
       await executeBaseAction(action, amount);
 
     } catch (error) {
@@ -99,9 +102,15 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white text-slate-900 font-sans">
       <Navigation />
       <Hero onConnect={connectWallet} />
+      
+      {/* These sections keep the site layout complete */}
+      <HistorySection />
+      <ImpactSection />
+      <LegacyArchive />
+
       <BaseSection 
         walletAddress={walletAddress}
         totalClaimable={totalClaimable}
@@ -109,7 +118,13 @@ function App() {
         isLoading={isLoading}
         onConnect={connectWallet} 
       />
+
+      <FeaturedSection />
+      <PartnersAndTestimonials />
       <Footer />
     </div>
   );
 }
+
+// CRITICAL: This is what Netlify was looking for!
+export default App;
