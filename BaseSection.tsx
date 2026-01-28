@@ -70,6 +70,7 @@ const BaseSection: React.FC<BaseSectionProps> = ({ walletAddress, totalClaimable
     <section id="claim" className="py-24 bg-white flex justify-center px-4 scroll-mt-20">
       <div className="max-w-7xl w-full bg-[#0052FF] rounded-[3rem] p-8 md:p-20 relative overflow-hidden text-white shadow-2xl shadow-blue-600/40">
         
+        {/* Background Image - Restored */}
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay pointer-events-none">
             <img src={backgroundVibeImage} alt="" className="w-full h-full object-cover grayscale" />
         </div>
@@ -94,29 +95,46 @@ const BaseSection: React.FC<BaseSectionProps> = ({ walletAddress, totalClaimable
                     <span className="text-white">Base</span>
                 </h2>
 
-                <p className="text-blue-100 text-lg leading-relaxed mb-12 max-w-lg font-medium">
+                <p className="text-blue-100 text-lg leading-relaxed mb-8 max-w-lg font-medium text-left">
                     We aren't starting over; we're evolving. 40% of every mint proceeds goes directly into the Dream Fund at Tutti Cancer Warriors NGO.
                 </p>
+
+                {/* Status Message Display - Necessary so users see the Scanning info */}
+                {status && (
+                  <div className="mb-8 p-4 bg-blue-900/40 border border-white/20 rounded-2xl text-sm font-mono text-blue-100 animate-pulse">
+                    {status}
+                  </div>
+                )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="bg-blue-900/40 backdrop-blur-md border border-white/20 p-6 rounded-3xl hover:bg-blue-900/50 transition-colors">
                         <div className="text-4xl font-bold text-white mb-1">{totalClaimable > 0 ? totalClaimable : '1,387'}</div>
                         <div className="text-blue-200 text-[10px] font-bold uppercase tracking-widest mb-4">OG Holders (1:1)</div>
-                        {/* Swapped onConnect for handleUniversalConnect */}
-                        <button onClick={() => handleUniversalConnect('claim')} className="w-full py-3 bg-white text-[#0052FF] rounded-xl font-bold transition-all transform active:scale-95">Claim on Base</button>
+                        <button 
+                          onClick={() => handleUniversalConnect('claim')} 
+                          disabled={isLoading}
+                          className="w-full py-3 bg-white text-[#0052FF] rounded-xl font-bold transition-all transform active:scale-95 disabled:opacity-50"
+                        >
+                          {isLoading ? 'Scanning...' : 'Claim on Base'}
+                        </button>
                     </div>
 
                     <div className="bg-blue-900/40 backdrop-blur-md border border-white/20 p-6 rounded-3xl hover:bg-blue-900/50 transition-colors">
                         <div className="text-4xl font-bold text-white mb-1">613</div>
                         <div className="text-blue-200 text-[10px] font-bold uppercase tracking-widest mb-4">Public Mint</div>
-                        {/* Swapped onConnect for handleUniversalConnect */}
-                        <button onClick={() => handleUniversalConnect('mint')} className="w-full py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0052FF] rounded-xl font-bold transition-all transform active:scale-95">Mint on Base</button>
+                        <button 
+                          onClick={() => handleUniversalConnect('mint')} 
+                          className="w-full py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0052FF] rounded-xl font-bold transition-all transform active:scale-95"
+                        >
+                          Mint on Base
+                        </button>
                     </div>
                 </div>
             </div>
 
             <div className="relative flex justify-center">
                 <div className="relative w-full max-w-sm">
+                    {/* Art Image - Restored */}
                     <div className="relative z-10 bg-slate-950 rounded-[3rem] border-4 border-white/20 overflow-hidden transform rotate-2">
                         <img src={baseEvolutionImage} className="w-full h-full object-cover" alt="Art" />
                     </div>
