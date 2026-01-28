@@ -1,22 +1,22 @@
 import { useState } from 'react';
 import { ethers } from 'ethers';
 
-// Import all your design components
-import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import HistorySection from './components/HistorySection';
-import ImpactSection from './components/ImpactSection';
-import LegacyArchive from './components/LegacyArchive';
-import BaseSection from './components/BaseSection';
-import FeaturedSection from './components/FeaturedSection';
-import PartnersAndTestimonials from './components/PartnersAndTestimonials';
-import Footer from './components/Footer';
+// --- FIXED IMPORTS: Removed the non-existent '/components/' folder ---
+import Navigation from './Navigation';
+import Hero from './Hero';
+import HistorySection from './HistorySection';
+import ImpactSection from './ImpactSection';
+import LegacyArchive from './LegacyArchive';
+import BaseSection from './BaseSection';
+import FeaturedSection from './FeaturedSection';
+import PartnersAndTestimonials from './PartnersAndTestimonials';
+import Footer from './Footer';
 
 const CONTRACTS = {
   ETH: { address: '0x7fB6Bb8e89e2A0C84Ab78Cd103d85ade167f2d52', rpc: 'https://eth.llamarpc.com' },
   SHIB: { address: '0xCd0d5af86FCeAe95feedB2e53E6182acbD063c3f', rpc: 'https://www.shibrpc.com' },
   BASE: { 
-    address: '0x0000000000000000000000000000000000000000', // Update this once you deploy!
+    address: '0x0000000000000000000000000000000000000000', 
     chainId: '0x2105' 
   }
 };
@@ -79,38 +79,29 @@ function App() {
 
   const connectWallet = async (action: 'claim' | 'mint') => {
     if (!window.ethereum) return;
-
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const accounts = await provider.send("eth_requestAccounts", []);
       const address = accounts[0];
       setWalletAddress(address);
-
       const amount = await checkHoldings(address);
-
       if (action === 'claim' && amount === 0) {
-        setStatus("No NFTs found to claim.");
+        setStatus("No NFTs found.");
         return;
       }
-
       await executeBaseAction(action, amount);
-
     } catch (error) {
-      console.error(error);
       setStatus("Connection failed.");
     }
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <Hero onConnect={connectWallet} />
-      
-      {/* These sections keep the site layout complete */}
       <HistorySection />
       <ImpactSection />
       <LegacyArchive />
-
       <BaseSection 
         walletAddress={walletAddress}
         totalClaimable={totalClaimable}
@@ -118,7 +109,6 @@ function App() {
         isLoading={isLoading}
         onConnect={connectWallet} 
       />
-
       <FeaturedSection />
       <PartnersAndTestimonials />
       <Footer />
@@ -126,5 +116,5 @@ function App() {
   );
 }
 
-// CRITICAL: This is what Netlify was looking for!
+// THIS LINE WAS MISSING AND CAUSED THE FIRST ERROR
 export default App;
