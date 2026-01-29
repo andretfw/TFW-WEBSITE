@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import logo from './tfw logo.png'; 
 
-const Navigation: React.FC = () => {
+interface NavigationProps {
+  onConnect: (action: 'claim' | 'mint' | 'connect') => void;
+  walletAddress: string | null;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ onConnect, walletAddress }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [account, setAccount] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,52 +25,39 @@ const Navigation: React.FC = () => {
     }
   };
 
-  const connectWallet = async () => {
-    const ethereum = (window as any).ethereum;
+  const handleConnect = async () => {
+    if (typeof window.ethereum !== 'undefined') {
+      try {
+        const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+        const targetChainId = '0x2105'; 
 
-    if (!ethereum) {
-      alert('Please open this site inside your Wallet App browser (Coinbase or MetaMask) to connect.');
-      return;
-    }
-
-    try {
-      const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-      const userAccount = accounts[0];
-
-      // UPDATED: FORCE SWITCH TO BASE (Chain ID 8453 / 0x2105)
-      const chainId = await ethereum.request({ method: 'eth_chainId' });
-      const targetChainId = '0x2105'; 
-
-      if (chainId !== targetChainId) {
-        try {
-          await ethereum.request({
-            method: 'wallet_switchEthereumChain',
-            params: [{ chainId: targetChainId }],
-          });
-        } catch (switchError: any) {
-          if (switchError.code === 4902) {
-            try {
-              await ethereum.request({
+        if (chainId !== targetChainId) {
+          try {
+            await window.ethereum.request({
+              method: 'wallet_switchEthereumChain',
+              params: [{ chainId: targetChainId }],
+            });
+          } catch (switchError: any) {
+            if (switchError.code === 4902) {
+              await window.ethereum.request({
                 method: 'wallet_addEthereumChain',
-                params: [
-                  {
-                    chainId: targetChainId,
-                    chainName: 'Base Mainnet',
-                    rpcUrls: ['https://mainnet.base.org'],
-                    nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
-                    blockExplorerUrls: ['https://basescan.org'],
-                  },
-                ],
+                params: [{
+                  chainId: targetChainId,
+                  chainName: 'Base Mainnet',
+                  rpcUrls: ['https://mainnet.base.org'],
+                  nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
+                  blockExplorerUrls: ['https://basescan.org'],
+                }],
               });
-            } catch (addError) {
-              console.error('Error adding Base network:', addError);
             }
           }
         }
+        onConnect('connect');
+      } catch (error) {
+        console.error('Wallet connection failed');
       }
-      setAccount(userAccount);
-    } catch (error) {
-      console.error('Wallet connection failed:', error);
+    } else {
+      alert('Please open this site inside your Wallet App browser to proceed.');
     }
   };
 
@@ -79,11 +70,7 @@ const Navigation: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
         <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
-            <img 
-              src={logo} 
-              alt="TFW Logo" 
-              className="h-28 w-auto object-contain" 
-            />
+            <img src={logo} alt="TFW Logo" className="h-28 w-auto object-contain" />
         </div>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
@@ -94,14 +81,14 @@ const Navigation: React.FC = () => {
           </a>
           
           <button 
-            onClick={connectWallet}
+            onClick={handleConnect}
             className={`px-6 py-2.5 rounded-full transition-all font-bold shadow-lg transform hover:-translate-y-0.5 ${
-              account 
+              walletAddress 
                 ? 'bg-green-100 text-green-700 border border-green-200' 
                 : 'bg-[#0052FF] text-white hover:bg-blue-700 shadow-blue-500/30'
             }`}
           >
-            {account ? formatAddress(account) : 'Connect Wallet'}
+            {walletAddress ? formatAddress(walletAddress) : 'Connect Wallet'}
           </button>
         </div>
 
