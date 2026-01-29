@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { ethers } from 'ethers';
 
-// --- FIXED IMPORTS: Removed the non-existent '/components/' folder ---
 import Navigation from './Navigation';
 import Hero from './Hero';
 import HistorySection from './HistorySection';
@@ -49,7 +48,7 @@ function App() {
       setTotalClaimable(total);
       return total;
     } catch (err) {
-      console.error("Read error:", err);
+      console.error(err);
       return 0;
     }
   };
@@ -70,7 +69,7 @@ function App() {
         const tx = await contract.mint({ value: ethers.parseEther("0.001") });
         await tx.wait();
       }
-      setStatus("Success! Welcome to Base.");
+      setStatus("Success!");
     } catch (err: any) {
       setStatus(err.reason || "Transaction failed.");
     }
@@ -78,18 +77,23 @@ function App() {
   };
 
   const connectWallet = async (action: 'claim' | 'mint') => {
-    if (!window.ethereum) return;
+    if (!window.ethereum) return; 
+
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const accounts = await provider.send("eth_requestAccounts", []);
       const address = accounts[0];
       setWalletAddress(address);
+
       const amount = await checkHoldings(address);
+
       if (action === 'claim' && amount === 0) {
         setStatus("No NFTs found.");
         return;
       }
+
       await executeBaseAction(action, amount);
+
     } catch (error) {
       setStatus("Connection failed.");
     }
@@ -116,5 +120,4 @@ function App() {
   );
 }
 
-// THIS LINE WAS MISSING AND CAUSED THE FIRST ERROR
 export default App;
