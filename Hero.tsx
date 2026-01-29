@@ -1,12 +1,45 @@
 import React from 'react';
 
-// Define props to receive the "Smart Connect" function from App.tsx
 interface HeroProps {
   onConnect: (action: 'claim' | 'mint') => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onConnect }) => {
   
+  const handleUniversalConnect = async (action: 'claim' | 'mint') => {
+    if (typeof window.ethereum !== 'undefined') {
+      try {
+        const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+        if (chainId !== '0x2105') {
+          try {
+            await window.ethereum.request({
+              method: 'wallet_switchEthereumChain',
+              params: [{ chainId: '0x2105' }],
+            });
+          } catch (switchError: any) {
+            if (switchError.code === 4902) {
+              await window.ethereum.request({
+                method: 'wallet_addEthereumChain',
+                params: [{
+                  chainId: '0x2105',
+                  chainName: 'Base Mainnet',
+                  nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
+                  rpcUrls: ['https://mainnet.base.org'],
+                  blockExplorerUrls: ['https://basescan.org']
+                }],
+              });
+            }
+          }
+        }
+        onConnect(action);
+      } catch (error) {
+        console.error("Connection failed");
+      }
+    } else {
+      alert("Please open this site inside your Wallet App's browser to proceed.");
+    }
+  };
+
   const socialLinks = [
     {
       name: 'X (Twitter)',
@@ -23,14 +56,12 @@ const Hero: React.FC<HeroProps> = ({ onConnect }) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-32 pb-12 overflow-hidden bg-white">
       
-      {/* BACKGROUND BLOBS */}
       <div className="absolute top-0 -left-4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
       <div className="absolute top-0 -right-4 w-96 h-96 bg-[#0052FF] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
       <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         
-        {/* BADGE */}
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100/50 backdrop-blur-md border border-blue-200 rounded-full text-[#0052FF] text-[10px] font-black mb-8 shadow-sm tracking-widest uppercase">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -39,7 +70,6 @@ const Hero: React.FC<HeroProps> = ({ onConnect }) => {
           Now Minting 2,000 on Base
         </div>
         
-        {/* HEADLINE */}
         <h1 className="text-6xl md:text-9xl font-serif font-bold text-slate-900 leading-tight mb-8">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">
             Tutti Frutti
@@ -55,27 +85,23 @@ const Hero: React.FC<HeroProps> = ({ onConnect }) => {
           Archiving legacy pieces on Ethereum and Shibarium to fund <b>Global Dream Support Grants</b> through a refined collection on Base.
         </p>
 
-        {/* BUTTONS */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
           
-          {/* MINT BUTTON - Now Base Blue */}
           <button 
-            onClick={() => onConnect('mint')}
+            onClick={() => handleUniversalConnect('mint')}
             className="w-full sm:w-auto px-12 py-6 bg-[#0052FF] text-white text-xl font-bold rounded-3xl shadow-2xl shadow-blue-500/30 hover:bg-blue-600 hover:-translate-y-1 transition-all cursor-pointer"
           >
             Mint Now
           </button>
           
-          {/* CLAIM BUTTON - Now TFW Purple Gradient */}
           <button 
-            onClick={() => onConnect('claim')}
+            onClick={() => handleUniversalConnect('claim')}
             className="w-full sm:w-auto px-12 py-6 bg-gradient-to-r from-purple-600 to-pink-500 text-white text-xl font-bold rounded-3xl shadow-2xl shadow-purple-500/30 hover:shadow-pink-500/30 hover:-translate-y-1 transition-all cursor-pointer"
           >
             Claim
           </button>
         </div>
 
-        {/* SOCIALS */}
         <div className="flex flex-col items-center gap-4 mb-20">
           <span className="text-[10px] font-black tracking-[0.4em] text-slate-400 uppercase">Follow our journey</span>
           <div className="flex items-center gap-10">
@@ -94,7 +120,6 @@ const Hero: React.FC<HeroProps> = ({ onConnect }) => {
           </div>
         </div>
 
-        {/* STATS */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="p-6 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-blue-900/5">
                 <div className="text-4xl font-bold text-slate-900 mb-1">1,387</div>
