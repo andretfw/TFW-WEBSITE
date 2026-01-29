@@ -53,7 +53,8 @@ function App() {
     }
   };
 
-  const executeBaseAction = async (action: 'claim' | 'mint', amount: number) => {
+  const executeBaseAction = async (action: 'claim' | 'mint' | 'connect', amount: number) => {
+    if (action === 'connect') return;
     setIsLoading(true);
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
@@ -76,7 +77,7 @@ function App() {
     setIsLoading(false);
   };
 
-  const connectWallet = async (action: 'claim' | 'mint') => {
+  const connectWallet = async (action: 'claim' | 'mint' | 'connect') => {
     if (!window.ethereum) return; 
 
     try {
@@ -87,12 +88,13 @@ function App() {
 
       const amount = await checkHoldings(address);
 
-      if (action === 'claim' && amount === 0) {
-        setStatus("No NFTs found.");
-        return;
+      if (action !== 'connect') {
+        if (action === 'claim' && amount === 0) {
+          setStatus("No NFTs found.");
+          return;
+        }
+        await executeBaseAction(action, amount);
       }
-
-      await executeBaseAction(action, amount);
 
     } catch (error) {
       setStatus("Connection failed.");
@@ -101,7 +103,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
+      <Navigation onConnect={connectWallet} walletAddress={walletAddress} />
       <Hero onConnect={connectWallet} />
       <HistorySection />
       <ImpactSection />
