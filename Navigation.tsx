@@ -13,10 +13,9 @@ const Navigation: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // --- NEW: Scroll Function for Base Launch ---
   const scrollToBase = (e: React.MouseEvent) => {
-    e.preventDefault(); // Stop default jump
-    const element = document.getElementById('claim'); // Looks for the Base section
+    e.preventDefault();
+    const element = document.getElementById('claim');
     if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -26,7 +25,7 @@ const Navigation: React.FC = () => {
     const ethereum = (window as any).ethereum;
 
     if (!ethereum) {
-      alert('MetaMask is not installed. Please install it to use this feature!');
+      alert('Please open this site inside your Wallet App browser (Coinbase or MetaMask) to connect.');
       return;
     }
 
@@ -34,9 +33,9 @@ const Navigation: React.FC = () => {
       const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
       const userAccount = accounts[0];
 
-      // SHIBARIUM LOGIC
+      // UPDATED: FORCE SWITCH TO BASE (Chain ID 8453 / 0x2105)
       const chainId = await ethereum.request({ method: 'eth_chainId' });
-      const targetChainId = '0x6d'; 
+      const targetChainId = '0x2105'; 
 
       if (chainId !== targetChainId) {
         try {
@@ -52,15 +51,15 @@ const Navigation: React.FC = () => {
                 params: [
                   {
                     chainId: targetChainId,
-                    chainName: 'Shibarium Mainnet',
-                    rpcUrls: ['https://www.shibrpc.com'],
-                    nativeCurrency: { name: 'BONE', symbol: 'BONE', decimals: 18 },
-                    blockExplorerUrls: ['https://shibariumscan.io'],
+                    chainName: 'Base Mainnet',
+                    rpcUrls: ['https://mainnet.base.org'],
+                    nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
+                    blockExplorerUrls: ['https://basescan.org'],
                   },
                 ],
               });
             } catch (addError) {
-              console.error('Error adding Shibarium network:', addError);
+              console.error('Error adding Base network:', addError);
             }
           }
         }
@@ -79,7 +78,6 @@ const Navigation: React.FC = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-white/50 backdrop-blur-sm py-4'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        {/* LOGO */}
         <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
             <img 
               src={logo} 
@@ -88,17 +86,13 @@ const Navigation: React.FC = () => {
             />
         </div>
         
-        {/* MENU */}
         <div className="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
           <a href="#about" className="hover:text-[#0052FF] transition-colors">Our Story</a>
           <a href="#impact" className="hover:text-[#0052FF] transition-colors">Impact</a>
-          
-          {/* ✅ UPDATED: Added onClick to scroll smoothly */}
           <a href="#claim" onClick={scrollToBase} className="hover:text-[#0052FF] transition-colors cursor-pointer">
             Base Launch
           </a>
           
-          {/* CONNECT BUTTON */}
           <button 
             onClick={connectWallet}
             className={`px-6 py-2.5 rounded-full transition-all font-bold shadow-lg transform hover:-translate-y-0.5 ${
